@@ -42,6 +42,7 @@
       <div class="hero-actions">
         <a class="btn btn-brand btn-lg js-join" href="#price">参与众筹 ¥299 起</a>
         <a class="btn btn-outline btn-lg js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">免费下载体验软件</a>
+        <a class="btn btn-wechat btn-lg js-contact" href="#contact">联系客服微信</a>
       </div>
       <div class="progress" aria-label="众筹进度">
         <div class="progress-bar"><span style="width: 30%"></span></div>
@@ -265,10 +266,27 @@
         <details><summary>怎么交付？什么时候能看？</summary><p><span class="todo">待定</span></p></details>
         <details><summary>源码可以商用吗？</summary><p><span class="todo">待定</span></p></details>
       </div>
+      <p class="center-cta">还有问题？<a class="link js-contact" href="#contact">联系客服微信</a></p>
     </div>
   </section>
 
-  <!-- 11. 底部 -->
+  <!-- 11. 联系客服：微信里长按二维码识别；其他浏览器里复制微信号去微信搜索 -->
+  <section id="contact" class="section section-soft">
+    <div class="wrap">
+      <h2>联系客服</h2>
+      <p class="section-sub">有任何问题，或者想先聊聊再决定，都可以加客服微信。</p>
+      <div class="contact">
+        <img class="qr" src="assets/wechat-qr.svg" alt="客服微信二维码" width="200" height="200">
+        <div class="contact-info">
+          <p class="wx">微信号：<strong><span class="todo js-wechat-id">待定</span></strong></p>
+          <button class="btn btn-wechat js-copy-wechat" type="button">复制微信号</button>
+          <p class="contact-tip">在微信里打开本页时，长按二维码即可识别添加；<br>也可以复制微信号，到微信里搜索添加。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. 底部 -->
   <section class="final">
     <div class="wrap">
       <h2>和 AI 一起，做出一个真正的软件</h2>
@@ -276,6 +294,7 @@
         <a class="btn btn-brand btn-lg js-join" href="#price">参与众筹 ¥299 起</a>
         <a class="btn btn-outline btn-lg js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">免费下载体验软件</a>
       </div>
+      <p class="center-cta"><a class="link js-contact" href="#contact">联系客服微信</a></p>
       <p class="social">B 站：<span class="todo">账号待定</span> · 抖音：<span class="todo">账号待定</span></p>
     </div>
   </section>
@@ -285,13 +304,14 @@
   <div class="wrap">
     <p>超级快捷键实战课 · 软件官网 <a href="https://superkeyapp.github.io" target="_blank" rel="noopener">superkeyapp.github.io</a></p>
     <p class="ai-note">本网站的页面和文字由 AI 通过 Vibe Coding 生成，内容仅供参考，如有不准确之处，以课程和软件实际为准。
-      有任何意见或建议，欢迎联系我们：<span class="todo">联系方式待定</span>。</p>
+      有任何意见或建议，欢迎<a href="#contact">联系我们</a>。</p>
   </div>
 </footer>
 
 <!-- 手机上一直在屏幕底部的按钮 -->
 <div class="sticky-cta">
-  <span>早鸟价 <strong>¥299</strong> 起</span>
+  <a class="sticky-service js-contact" href="#contact" aria-label="联系客服微信"><span class="wx-icon" aria-hidden="true"></span>客服</a>
+  <span class="sticky-price">早鸟价 <strong>¥299</strong> 起</span>
   <a class="btn btn-brand js-join" href="#price">参与众筹</a>
 </div>
 
@@ -299,6 +319,7 @@
 <div class="dialog" id="dialog" hidden>
   <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
     <h3 id="dialog-title"></h3>
+    <img id="dialog-img" class="qr" alt="" hidden>
     <p id="dialog-text"></p>
     <div class="dialog-actions">
       <button class="btn btn-outline" id="dialog-copy" hidden>复制网址</button>

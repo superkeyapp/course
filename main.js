@@ -1,6 +1,8 @@
 // 落地页的交互：功能视频滑到眼前才播放、手机上点“下载”给出电脑网址、付款和介绍视频（还没定时）的提示
 (() => {
   const OFFICIAL_SITE = 'https://superkeyapp.github.io'
+  // 客服微信：只改这里。二维码图片换成真的以后，把 qr 改成 'assets/wechat-qr.png'（页面底部那张在 index.html 里也改一下）
+  const WECHAT = { id: '', qr: 'assets/wechat-qr.svg' }
   const isPhone = /Android|iPhone|iPad|iPod|HarmonyOS|Mobile/i.test(navigator.userAgent)
 
   // ---- 弹窗 ----
@@ -8,31 +10,66 @@
   const title = document.getElementById('dialog-title')
   const text = document.getElementById('dialog-text')
   const copyBtn = document.getElementById('dialog-copy')
+  const img = document.getElementById('dialog-img')
   let copyValue = ''
+  let copyLabel = ''
 
-  function showDialog(t, body, copy) {
+  // copy：要复制的内容（有才显示“复制”按钮）；options.image：显示一张图（客服二维码）
+  function showDialog(t, body, copy, options = {}) {
     title.textContent = t
     text.textContent = body
     copyValue = copy || ''
+    copyLabel = options.copyLabel || '复制网址'
     copyBtn.hidden = !copy
-    copyBtn.textContent = '复制网址'
+    copyBtn.textContent = copyLabel
+    img.hidden = !options.image
+    if (options.image) {
+      img.src = options.image
+      img.alt = options.imageAlt || ''
+    }
     dialog.hidden = false
   }
   document.getElementById('dialog-close').addEventListener('click', () => { dialog.hidden = true })
   dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.hidden = true })
-  copyBtn.addEventListener('click', async () => {
+  async function copyText(value) {
     try {
-      await navigator.clipboard.writeText(copyValue)
+      await navigator.clipboard.writeText(value)
     } catch {
       // 微信里有时不允许直接写剪贴板：用一个临时输入框复制
       const input = document.createElement('textarea')
-      input.value = copyValue
+      input.value = value
       document.body.appendChild(input)
       input.select()
       document.execCommand('copy')
       input.remove()
     }
+  }
+  copyBtn.addEventListener('click', async () => {
+    await copyText(copyValue)
     copyBtn.textContent = '已复制'
+  })
+
+  // ---- 联系客服微信：弹出二维码和微信号；页面底部另有一块“联系客服” ----
+  if (WECHAT.id) {
+    document.querySelectorAll('.js-wechat-id').forEach((el) => {
+      el.textContent = WECHAT.id
+      el.classList.remove('todo')
+    })
+  }
+  const wechatTip = '在微信里长按二维码即可添加；也可以复制微信号，到微信里搜索添加。'
+  document.querySelectorAll('.js-contact').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault()
+      showDialog('联系客服微信', (WECHAT.id ? `微信号：${WECHAT.id}。` : '微信号待定。') + wechatTip, WECHAT.id,
+        { image: WECHAT.qr, imageAlt: '客服微信二维码', copyLabel: '复制微信号' })
+    })
+  })
+  document.querySelectorAll('.js-copy-wechat').forEach((b) => {
+    b.addEventListener('click', async () => {
+      if (!WECHAT.id) return
+      await copyText(WECHAT.id)
+      b.textContent = '已复制，去微信搜索添加'
+    })
   })
 
   // ---- 下载体验：软件只能装在 Windows 电脑上，手机上给出网址让用户到电脑上打开 ----

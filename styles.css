@@ -51,7 +51,8 @@ a { color: inherit; text-decoration: none; }
 .topbar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-top: 10px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; }
 .brand { white-space: nowrap; }
-.brand-long { display: none; }   /* 手机上只显示“超级快捷键”，免得把“参与众筹”挤出去 */
+/* 手机上底部一直浮着“参与众筹”，顶栏就不再放这个按钮，留地方显示完整的课程名 */
+.topbar .btn { display: none; }
 /* 导航：手机上是顶栏下面一行，可以左右滑动；电脑上和名字、按钮在同一行 */
 .topnav { display: flex; order: 3; width: 100%; gap: 20px; padding: 2px 0 10px; overflow-x: auto; white-space: nowrap;
   font-size: 14px; color: var(--text-2); scrollbar-width: none; }
@@ -295,7 +296,7 @@ a { color: inherit; text-decoration: none; }
   html { scroll-padding-top: 72px; }
   .sticky-cta { display: none; }
   .topbar-inner { flex-wrap: nowrap; height: 56px; padding-top: 0; }
-  .brand-long { display: inline; }
+  .topbar .btn { display: inline-flex; }
   .topnav { order: 0; width: auto; margin-left: auto; padding: 0; gap: 24px; font-size: 15px; overflow: visible; }
   .topbar .btn { margin-left: 8px; }
   .hero { padding: 44px 0 56px; }

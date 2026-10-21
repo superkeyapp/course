@@ -129,12 +129,12 @@
       <table class="tech">
         <thead><tr><th>版本</th><th>界面技术</th><th>语言</th><th>和核心怎么连</th><th>特点</th><th>档位</th></tr></thead>
         <tbody>
-          <tr><th scope="row" data-label="版本">Win32 版</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">和核心编在同一个程序里，直接调用</td><td data-label="特点">单个文件约 3 MB，不用装任何运行库</td><td data-label="档位"><em class="std">标准版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Win32 版</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">单个文件约 3 MB，不用装任何运行库</td><td data-label="档位"><em class="std">标准版</em></td></tr>
           <tr><th scope="row" data-label="版本">WinUI 版</th><td data-label="界面技术">WinUI 3（Windows App SDK）</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">Windows 11 设置风格，支持深色</td><td data-label="档位"><em class="std">标准版</em></td></tr>
           <tr><th scope="row" data-label="版本">WPF 版</th><td data-label="界面技术">WPF</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">最成熟的 .NET 桌面技术</td><td data-label="档位"><em class="">完整版</em></td></tr>
           <tr><th scope="row" data-label="版本">Electron 版</th><td data-label="界面技术">Electron + React + Fluent UI</td><td data-label="语言">TypeScript</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">网页技术做桌面软件</td><td data-label="档位"><em class="">完整版</em></td></tr>
           <tr><th scope="row" data-label="版本">Tauri 版</th><td data-label="界面技术">Tauri 2 + 同一套 React 界面</td><td data-label="语言">TypeScript + Rust</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">用系统自带的 WebView2，体积比 Electron 小</td><td data-label="档位"><em class="">完整版</em></td></tr>
-          <tr><th scope="row" data-label="版本">Direct2D 版</th><td data-label="界面技术">Direct2D 自绘</td><td data-label="语言">C++</td><td data-label="和核心怎么连">和核心编在同一个程序里</td><td data-label="特点">每个控件自己画</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
+          <tr><th scope="row" data-label="版本">Direct2D 版</th><td data-label="界面技术">Direct2D 自绘</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">每个控件自己画</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
           <tr><th scope="row" data-label="版本">aardio 版</th><td data-label="界面技术">aardio 原生窗口</td><td data-label="语言">aardio</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">国产语言，小巧</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
         </tbody>
       </table>
@@ -209,8 +209,8 @@
           <details open>
             <summary class="key"><code>SuperKey/</code><span>软件源码</span></summary>
             <ul>
-              <li><code>superkey/</code><span>C++ 核心 + Win32 界面：快捷键与手势引擎、配置、托盘，给其他界面用的管道服务；所有功能都在这里</span><em class="std">标准版</em></li>
-              <li><code>superkey-win32/</code><span>Win32 版发布：核心 + 设置窗口，单个 exe 就能运行</span><em class="std">标准版</em></li>
+              <li><code>superkey/</code><span>C++ 核心：快捷键与手势引擎、配置、托盘，所有功能都在这里；给 WinUI 等界面用的管道服务（用 JSON 描述界面）</span><em class="std">标准版</em></li>
+              <li><code>superkey-win32/</code><span>Win32 版：核心 + 系统控件的设置窗口，编在一个 exe 里；不走管道、不用 JSON 描述界面，单个文件就能运行</span><em class="std">标准版</em></li>
               <li><code>superkey-winui/</code><span>WinUI 3 界面：Windows 11 设置风格</span><em class="std">标准版</em></li>
               <li><code>superkey-client/</code><span>.NET 公共客户端库：WinUI 等 .NET 界面连接核心用</span><em class="std">标准版</em></li>
               <li><code>design/</code><span>设计规范：图标、颜色、尺寸，人或 AI 都能照着还原</span><em class="std">标准版</em></li>

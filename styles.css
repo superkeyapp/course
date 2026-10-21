@@ -18,7 +18,7 @@
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }   /* 按钮、图片自己设了 display，不加这句 hidden 会失效 */
-html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; -webkit-text-size-adjust: 100%; }
 body { margin: 0; font: 16px/1.7 var(--font); color: var(--text); background: var(--bg); padding-bottom: 72px; }
 img, video { max-width: 100%; display: block; }
 h1, h2, h3 { line-height: 1.3; margin: 0; }
@@ -48,11 +48,14 @@ a { color: inherit; text-decoration: none; }
 /* 顶栏 */
 .topbar { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line); }
-.topbar-inner { display: flex; align-items: center; height: 56px; gap: 16px; }
+.topbar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-top: 10px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; }
 .brand { white-space: nowrap; }
-@media (max-width: 360px) { .brand { font-size: 14px; gap: 6px; } .brand img { width: 24px; height: 24px; } }
-.topnav { display: none; margin-left: auto; gap: 24px; font-size: 15px; color: var(--text-2); }
+.brand-long { display: none; }   /* 手机上只显示“超级快捷键”，免得把“参与众筹”挤出去 */
+/* 导航：手机上是顶栏下面一行，可以左右滑动；电脑上和名字、按钮在同一行 */
+.topnav { display: flex; order: 3; width: 100%; gap: 20px; padding: 2px 0 10px; overflow-x: auto; white-space: nowrap;
+  font-size: 14px; color: var(--text-2); scrollbar-width: none; }
+.topnav::-webkit-scrollbar { display: none; }
 .topnav a:hover { color: var(--brand); }
 /* 导航里的“未来已来”：红色加粗，前面一个闪动的小红点 */
 .topnav .nav-hot { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-weight: 800; }
@@ -65,7 +68,7 @@ a { color: inherit; text-decoration: none; }
   100% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0); }
 }
 @media (prefers-reduced-motion: reduce) { .topnav .nav-hot::before { animation: none; } }
-.topbar .btn { margin-left: auto; }
+.topbar .btn { margin-left: auto; flex-shrink: 0; }
 
 /* 首屏 */
 .hero { padding: 24px 0 40px; text-align: center; background: linear-gradient(180deg, #eef4fe 0%, #fff 70%); }
@@ -289,8 +292,11 @@ a { color: inherit; text-decoration: none; }
 /* 平板、电脑：放宽 */
 @media (min-width: 720px) {
   body { padding-bottom: 0; }
+  html { scroll-padding-top: 72px; }
   .sticky-cta { display: none; }
-  .topnav { display: flex; }
+  .topbar-inner { flex-wrap: nowrap; height: 56px; padding-top: 0; }
+  .brand-long { display: inline; }
+  .topnav { order: 0; width: auto; margin-left: auto; padding: 0; gap: 24px; font-size: 15px; overflow: visible; }
   .topbar .btn { margin-left: 8px; }
   .hero { padding: 44px 0 56px; }
   .hero h1 { font-size: 46px; }

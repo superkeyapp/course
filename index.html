@@ -114,12 +114,13 @@
           <span>快捷键、手势、屏幕边缘、短语……<br>所有功能都在这里</span>
         </div>
         <div class="arch-uis">
-          <div class="ui ui-std"><strong>Win32 界面</strong><span>经典风格，和核心编译在一起，单个文件约 3 MB</span><em>标准版</em></div>
+          <div class="ui ui-std"><strong>Win32 界面</strong><span>核心自带，按 JSON 描述画界面</span><em>标准版</em></div>
           <div class="ui ui-std"><strong>WinUI 界面</strong><span>Windows 11 风格，支持深色</span><em>标准版</em></div>
-          <div class="ui"><strong>WPF 界面</strong><span>.NET</span><em>完整版</em></div>
-          <div class="ui"><strong>Electron 界面</strong><span>网页技术（React）</span><em>完整版</em></div>
-          <div class="ui"><strong>Tauri 界面</strong><span>同一套网页界面，外壳换成 Rust</span><em>完整版</em></div>
-          <div class="ui ui-lab"><strong>Direct2D、aardio 界面</strong><span>试验项目，未完成</span><em>试验包</em></div>
+          <div class="ui"><strong>WPF 界面</strong><span>.NET</span><em>进阶版</em></div>
+          <div class="ui"><strong>Electron 界面</strong><span>网页技术（React）</span><em>进阶版</em></div>
+          <div class="ui"><strong>Tauri 界面</strong><span>同一套网页界面，外壳换成 Rust</span><em>进阶版</em></div>
+          <div class="ui"><strong>独立 Win32 版</strong><span>不用 JSON、不走管道，单个文件</span><em>全套版</em></div>
+          <div class="ui ui-lab"><strong>Direct2D、aardio 界面</strong><span>试验项目，未完成</span><em>全套版</em></div>
         </div>
       </div>
 
@@ -129,22 +130,23 @@
       <table class="tech">
         <thead><tr><th>版本</th><th>界面技术</th><th>语言</th><th>和核心怎么连</th><th>特点</th><th>档位</th></tr></thead>
         <tbody>
-          <tr><th scope="row" data-label="版本">Win32 版</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">单个文件约 3 MB，不用装任何运行库</td><td data-label="档位"><em class="std">标准版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Win32 界面（核心自带）</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，按 JSON 描述画界面</td><td data-label="特点">和 WinUI 等用同一套界面描述</td><td data-label="档位"><em class="std">标准版</em></td></tr>
           <tr><th scope="row" data-label="版本">WinUI 版</th><td data-label="界面技术">WinUI 3（Windows App SDK）</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">Windows 11 设置风格，支持深色</td><td data-label="档位"><em class="std">标准版</em></td></tr>
-          <tr><th scope="row" data-label="版本">WPF 版</th><td data-label="界面技术">WPF</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">最成熟的 .NET 桌面技术</td><td data-label="档位"><em class="">完整版</em></td></tr>
-          <tr><th scope="row" data-label="版本">Electron 版</th><td data-label="界面技术">Electron + React + Fluent UI</td><td data-label="语言">TypeScript</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">网页技术做桌面软件</td><td data-label="档位"><em class="">完整版</em></td></tr>
-          <tr><th scope="row" data-label="版本">Tauri 版</th><td data-label="界面技术">Tauri 2 + 同一套 React 界面</td><td data-label="语言">TypeScript + Rust</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">用系统自带的 WebView2，体积比 Electron 小</td><td data-label="档位"><em class="">完整版</em></td></tr>
-          <tr><th scope="row" data-label="版本">Direct2D 版</th><td data-label="界面技术">Direct2D 自绘</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">每个控件自己画</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
-          <tr><th scope="row" data-label="版本">aardio 版</th><td data-label="界面技术">aardio 原生窗口</td><td data-label="语言">aardio</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">国产语言，小巧</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
+          <tr><th scope="row" data-label="版本">WPF 版</th><td data-label="界面技术">WPF</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">最成熟的 .NET 桌面技术</td><td data-label="档位"><em class="adv">进阶版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Electron 版</th><td data-label="界面技术">Electron + React + Fluent UI</td><td data-label="语言">TypeScript</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">网页技术做桌面软件</td><td data-label="档位"><em class="adv">进阶版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Tauri 版</th><td data-label="界面技术">Tauri 2 + 同一套 React 界面</td><td data-label="语言">TypeScript + Rust</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">用系统自带的 WebView2，体积比 Electron 小</td><td data-label="档位"><em class="adv">进阶版</em></td></tr>
+          <tr><th scope="row" data-label="版本">独立 Win32 版</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">不走管道，单个文件约 3 MB，不用装运行库</td><td data-label="档位"><em class="full">全套版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Direct2D 版（试验）</th><td data-label="界面技术">Direct2D 自绘</td><td data-label="语言">C++</td><td data-label="和核心怎么连">编在同一个程序里，直接调用（不用 JSON）</td><td data-label="特点">每个控件自己画；未经实际使用</td><td data-label="档位"><em class="full">全套版</em></td></tr>
+          <tr><th scope="row" data-label="版本">aardio 版（试验）</th><td data-label="界面技术">aardio 原生窗口</td><td data-label="语言">aardio</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">国产语言，小巧；开发到一半</td><td data-label="档位"><em class="full">全套版</em></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- 5. 价格 -->
+  <!-- 5. 价格：三个档位 -->
   <section id="price" class="section section-soft">
     <div class="wrap">
-      <h2>两个档位</h2>
+      <h2>三个档位</h2>
       <p class="section-sub">核心是同一个，区别只在包含几套界面。每个项目都是完整的：源码、测试、文档、打包脚本，拿到就能编译、打出安装包。</p>
       <div class="plans">
         <div class="plan">
@@ -152,9 +154,8 @@
           <p class="price"><small>¥</small>298</p>
           <p class="plan-sub">核心 + 两套界面，完整走一遍开发流程</p>
           <ul>
-            <li>付款后联系客服即可领取源码</li>
-            <li>C++ 核心完整源码</li>
-            <li>Win32 界面完整源码</li>
+            <li class="key">付款后联系客服即可领取源码</li>
+            <li>C++ 核心完整源码（含 JSON 界面描述和自带的 Win32 界面）</li>
             <li>WinUI 界面完整源码（含 .NET 公共客户端库）</li>
             <li>视频课程：需求分析 → 验证 → 编写 → 重构到 C++ → 拆出核心 → 对接 WinUI → 打包发布 → 宣传网站、辅助工具</li>
             <li>设计规范、项目文档</li>
@@ -164,11 +165,11 @@
         </div>
         <div class="plan plan-full">
           <span class="plan-tag">推荐</span>
-          <h3>完整版</h3>
-          <p class="price"><small>¥</small>598</p>
+          <h3>进阶版</h3>
+          <p class="price"><small>¥</small>698</p>
           <p class="plan-sub">标准版全部内容，再加三套界面</p>
           <ul>
-            <li>付款后联系客服即可领取源码</li>
+            <li class="key">付款后联系客服即可领取源码</li>
             <li>标准版的全部内容</li>
             <li>WPF 界面完整源码（.NET）</li>
             <li>Electron 界面完整源码（TypeScript、React）</li>
@@ -176,24 +177,24 @@
             <li>配套工具：KeyCast 按键显示（录屏时把按键显示在屏幕上，官网的演示视频就是用它录的）</li>
             <li>微信答疑群</li>
           </ul>
-          <a class="btn btn-accent btn-block js-join" href="#" data-plan="full" data-name="完整版">参与众筹</a>
+          <a class="btn btn-accent btn-block js-join" href="#" data-plan="advanced" data-name="进阶版 ¥698">参与众筹</a>
+        </div>
+        <div class="plan">
+          <h3>全套版</h3>
+          <p class="price"><small>¥</small>798</p>
+          <p class="plan-sub">全部内容，包括不同架构的做法和试验项目</p>
+          <ul>
+            <li class="key">付款后联系客服即可领取源码</li>
+            <li>进阶版的全部内容</li>
+            <li>独立 Win32 版完整源码：去掉 JSON 和管道，界面直接调用核心，单个文件</li>
+            <li>两个试验项目（按现状提供，不保证完整可用，以后也不再更新）：Direct2D 自绘界面（功能做完了，但没有经过实际使用）、aardio 界面（开发到一半）</li>
+            <li>微信答疑群</li>
+          </ul>
+          <a class="btn btn-accent btn-block js-join" href="#" data-plan="full" data-name="全套版 ¥798">参与众筹</a>
         </div>
       </div>
 
       <p class="refund-note">源码一经发放，不支持全额退款；众筹没成功只退差价。</p>
-
-      <!-- 试验项目：不再继续做，按现状加价提供；必须写清楚未完成 -->
-      <div class="addon">
-        <div class="addon-head">
-          <h3>试验包</h3>
-          <p class="addon-price">完整版 <strong>+¥150</strong></p>
-        </div>
-        <ul>
-          <li><strong>Direct2D 自绘界面</strong>：设置窗口的每个控件都自己画，功能做完了、测试通过，但没有经过实际使用，比主版本落后一些更新。</li>
-          <li><strong>aardio 界面</strong>：开发到一半，部分页面还不能用。</li>
-        </ul>
-        <p class="addon-note">按现状提供源码，<strong>不保证完整可用，以后也不再更新</strong>，适合想研究不同界面技术的人。只能和完整版一起购买，需要的话请<a class="link js-contact" href="#contact">联系客服</a>了解或购买。</p>
-      </div>
     </div>
   </section>
 
@@ -209,23 +210,23 @@
           <details open>
             <summary class="key"><code>SuperKey/</code><span>软件源码</span></summary>
             <ul>
-              <li><code>superkey/</code><span>C++ 核心：快捷键与手势引擎、配置、托盘，所有功能都在这里；给 WinUI 等界面用的管道服务（用 JSON 描述界面）</span><em class="std">标准版</em></li>
-              <li><code>superkey-win32/</code><span>Win32 版：核心 + 系统控件的设置窗口，编在一个 exe 里；不走管道、不用 JSON 描述界面，单个文件就能运行</span><em class="std">标准版</em></li>
+              <li><code>superkey/</code><span>C++ 核心：快捷键与手势引擎、配置、托盘，所有功能都在这里；用 JSON 描述界面，自带一套 Win32 界面，并通过管道给 WinUI 等界面用</span><em class="std">标准版</em></li>
+              <li><code>superkey-win32/</code><span>独立 Win32 版：核心 + 系统控件的设置窗口，编在一个 exe 里；不走管道、不用 JSON 描述界面，单个文件就能运行</span><em class="full">全套版</em></li>
               <li><code>superkey-winui/</code><span>WinUI 3 界面：Windows 11 设置风格</span><em class="std">标准版</em></li>
               <li><code>superkey-client/</code><span>.NET 公共客户端库：WinUI 等 .NET 界面连接核心用</span><em class="std">标准版</em></li>
               <li><code>design/</code><span>设计规范：图标、颜色、尺寸，人或 AI 都能照着还原</span><em class="std">标准版</em></li>
               <li><code>docs/</code><span>需求、计划、打包与发布文档</span><em class="std">标准版</em></li>
               <li><code>tools/</code><span>各项目共用的打包脚本、安装包模板</span><em class="std">标准版</em></li>
-              <li><code>superkey-wpf/</code><span>WPF 界面（.NET）</span><em>完整版</em></li>
-              <li><code>superkey-electron/</code><span>Electron 界面（TypeScript、React）</span><em>完整版</em></li>
-              <li><code>superkey-tauri/</code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em>完整版</em></li>
-              <li><code>superkey-aardio/</code><span>aardio 界面（开发到一半，按现状提供）</span><em class="lab">试验包</em></li>
-              <li><code>superkey-d2d/</code><span>Direct2D 自绘界面（功能完整，未经实际使用，按现状提供）</span><em class="lab">试验包</em></li>
+              <li><code>superkey-wpf/</code><span>WPF 界面（.NET）</span><em class="adv">进阶版</em></li>
+              <li><code>superkey-electron/</code><span>Electron 界面（TypeScript、React）</span><em class="adv">进阶版</em></li>
+              <li><code>superkey-tauri/</code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em class="adv">进阶版</em></li>
+              <li><code>superkey-aardio/</code><span>aardio 界面（试验，开发到一半，按现状提供）</span><em class="full">全套版</em></li>
+              <li><code>superkey-d2d/</code><span>Direct2D 自绘界面（试验，功能完整，未经实际使用，按现状提供）</span><em class="full">全套版</em></li>
             </ul>
           </details>
           <ul>
             <li><code>superkeyapp.github.io/</code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
-            <li><code>keycast/</code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em>完整版</em></li>
+            <li><code>keycast/</code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em class="adv">进阶版</em></li>
           </ul>
         </details>
       </div>
@@ -283,8 +284,8 @@
           <p>课程全程用 Claude Code 桌面版，推荐你也用它，跟着课程操作最顺。也可以用 Codex 或 Trae。其他工具我们用得不多，不太推荐，想试也可以。</p></details>
         <details><summary>视频课程讲什么？会教写代码吗？</summary><p>不教写代码。视频不教写代码，而是用 Vibe Coding 的方式，从需求分析、验证功能可行，到做出两个成熟的核心功能，最后制作宣传网站、写一些辅助工具（比如录演示视频用的按键显示），完整走一遍。具体步骤见上面“这门课讲什么”。</p></details>
         <details><summary>视频里所有功能都从零写一遍吗？</summary><p>不是。视频里把需求分析、验证、编写、重构、拆出核心、对接 WinUI、打包发布、宣传网站和辅助工具的完整流程走一遍；不是每个功能都重做一遍，其余功能讲解思路，并提供完整源码。</p></details>
-        <details><summary>标准版和完整版有什么区别？</summary><p>核心是同一个。标准版包含 Win32 和 WinUI 两套界面；完整版再加 WPF、Electron、Tauri 三套界面。每个项目都带自己的打包脚本，拿到就能打出安装包。</p></details>
-        <details><summary>试验包是什么？</summary><p>Direct2D 自绘界面和 aardio 界面两个试验项目，没有做完，也不再继续做。按现状提供源码，不保证完整可用，以后不更新，适合想研究不同界面技术的人。只能和完整版一起买，加 ¥150，需要的话请<a class="link js-contact" href="#contact">联系客服</a>了解或购买。</p></details>
+        <details><summary>三个档位有什么区别？</summary><p>核心是同一个。标准版是核心（自带 Win32 界面）+ WinUI 界面；进阶版再加 WPF、Electron、Tauri 三套界面和 KeyCast；全套版再加独立 Win32 版（不用 JSON、单个文件）和 Direct2D、aardio 两个试验项目。每个项目都带自己的打包脚本，拿到就能打出安装包。</p></details>
+        <details><summary>全套版里的 Direct2D、aardio 是什么？</summary><p>两个试验项目，没有做完，也不再继续做：Direct2D 自绘界面功能做完了，但没有经过实际使用；aardio 界面开发到一半。按现状提供源码，不保证完整可用，以后不更新，适合想研究不同界面技术的人。</p></details>
         <details><summary>遇到问题怎么办？</summary>
           <p>两个档位都有微信答疑群。</p>
           <p>整个项目是用 Vibe Coding 的方式开发的，代码都是 AI 写的。所以遇到具体的代码问题，比如报错、想加功能、想改界面，推荐直接交给 AI 解决：把报错信息和你的需求发给 AI，它比人更快、更专业。这也正是这门课要教的方法。</p>

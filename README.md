@@ -21,7 +21,7 @@ python -m http.server 5180
 
 页面上黄底的 `<span class="todo">` 都是占位，定了以后替换：
 
-- 众筹：截止时间、目标人数、已参与人数（`index.html` 里的进度条宽度）、开始交付时间
+- 众筹：截止日期（暂写 2027 年 1 月 20 日）、已参与人数（`index.html` 里的进度条宽度，目标 20 人）
 - 购买链接：两个档位各对应课程网站上的一个课程，网址填到 `main.js` 顶部的 `PLAN_LINKS`（standard、full），填了以后点“参与众筹”直接跳过去
 - 客服微信：微信号填到 `main.js` 顶部的 `WECHAT.id`；二维码图片放到 `assets/wechat-qr.png`，再把 `main.js` 的 `WECHAT.qr` 和 `index.html` 里“联系客服”那张图的地址改过来
 - 介绍视频：B 站地址填到 `index.html` 里 `.js-video` 的 `data-url`

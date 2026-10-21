@@ -25,7 +25,7 @@ python -m http.server 5180
 - 购买链接：两个档位各对应课程网站上的一个课程，网址填到 `main.js` 顶部的 `PLAN_LINKS`（standard、full），填了以后点“参与众筹”直接跳过去
 - 客服微信：微信号填到 `main.js` 顶部的 `WECHAT.id`；二维码图片放到 `assets/wechat-qr.png`，再把 `main.js` 的 `WECHAT.qr` 和 `index.html` 里“联系客服”那张图的地址改过来
 - 介绍视频：B 站地址填到 `index.html` 里 `.js-video` 的 `data-url`
-- 完整版的其他权益、编程基础要求、用到的 AI 工具、作者介绍、源码能否商用、B 站和抖音账号
+- 完整版的其他权益、用到的 AI 工具、作者介绍、源码能否商用、B 站和抖音账号
 
 ## 约定
 

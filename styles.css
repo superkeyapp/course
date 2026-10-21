@@ -188,6 +188,15 @@ a { color: inherit; text-decoration: none; }
 .tech em.adv, .tree em.adv { background: #e6f4ea; color: #137333; }
 .tech em.full, .tree em.full { background: #f3e8fd; color: #8430ce; }
 
+/* 做这个项目花了多少 */
+.cost-stats { display: grid; gap: 12px; max-width: 900px; margin: 24px auto 0; }
+.cost-stats div { padding: 18px; border-radius: var(--radius); background: var(--bg-soft); border: 1px solid var(--line); text-align: center; }
+.cost-stats strong { display: block; font-size: 24px; font-weight: 800; color: var(--accent); line-height: 1.3; }
+.cost-stats div:last-child strong { font-size: 20px; color: var(--text); }
+.cost-stats span { display: block; margin-top: 6px; font-size: 14px; color: var(--text-2); }
+.cost-text { max-width: 760px; margin: 20px auto 0; color: var(--text-2); text-align: center; }
+.cost-text strong { color: var(--text); }
+
 /* 价格 */
 .plans { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 820px; margin: 0 auto; }
 .plan { position: relative; padding: 24px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
@@ -314,6 +323,7 @@ a { color: inherit; text-decoration: none; }
   .arch-uis { grid-template-columns: repeat(3, 1fr); max-width: 820px; }
   .plans { grid-template-columns: 1fr 1fr; max-width: 1080px; }
   .who { grid-template-columns: repeat(3, 1fr); }
+  .cost-stats { grid-template-columns: repeat(3, 1fr); }
   .tech thead { display: table-header-group; }
   .tech tr { display: table-row; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; }
   .tech th, .tech td { display: table-cell; padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }

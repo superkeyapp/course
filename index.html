@@ -129,21 +129,37 @@
     <div class="wrap">
       <h2>一个核心，多套界面</h2>
       <p class="section-sub">所有功能都在 C++ 核心里；界面可以换。这是一个软件，不是几个软件。</p>
-      <div class="arch">
-        <div class="arch-core">
+      <!-- 架构图：左边核心，中间命名管道 + JSON，右边各种界面；手机上从上到下排 -->
+      <div class="diagram">
+        <div class="dg-core">
           <strong>C++ 核心</strong>
-          <span>快捷键、手势、屏幕边缘、短语……<br>所有功能都在这里</span>
+          <small>常驻后台，所有功能都在这里</small>
+          <ul class="dg-features">
+            <li>快捷键</li><li>鼠标手势</li><li>屏幕边缘</li><li>复制搜索</li><li>CapsLock 增强</li><li>多步按键</li><li>短语替换</li>
+          </ul>
+          <div class="dg-inproc">
+            <b>同一个程序里，不走管道：</b>
+            <span>自带的 Win32 界面<em class="std">标准版</em></span>
+            <span>独立 Win32 版、Direct2D 版<em class="full">全套版</em></span>
+          </div>
         </div>
-        <div class="arch-uis">
-          <div class="ui ui-std"><strong>Win32 界面</strong><span>核心自带，按 JSON 描述画界面</span><em>标准版</em></div>
-          <div class="ui ui-std"><strong>WinUI 界面</strong><span>Windows 11 风格，支持深色</span><em>标准版</em></div>
-          <div class="ui"><strong>WPF 界面</strong><span>.NET</span><em>进阶版</em></div>
-          <div class="ui"><strong>Electron 界面</strong><span>网页技术（React）</span><em>进阶版</em></div>
-          <div class="ui"><strong>Tauri 界面</strong><span>同一套网页界面，外壳换成 Rust</span><em>进阶版</em></div>
-          <div class="ui"><strong>独立 Win32 版</strong><span>不用 JSON、不走管道，单个文件</span><em>全套版</em></div>
-          <div class="ui ui-lab"><strong>Direct2D、aardio 界面</strong><span>试验项目，未完成</span><em>全套版</em></div>
+        <div class="dg-pipe">
+          <strong>Windows 命名管道</strong>
+          <div class="dg-arrow" aria-hidden="true"></div>
+          <code class="dg-json">→ {"method": "ui.page",<br>&nbsp;&nbsp;&nbsp;"params": {"id": "gesture"}}</code>
+          <code>← 页面描述 JSON：标题、开关、列表……</code>
         </div>
+        <ul class="dg-uis">
+          <li>WinUI<em class="std">标准版</em></li>
+          <li>WPF<em class="adv">进阶版</em></li>
+          <li>Electron<em class="adv">进阶版</em></li>
+          <li>Tauri<em class="adv">进阶版</em></li>
+          <li>aardio<em class="full">全套版 · 试验</em></li>
+          <li class="dg-future">Qt<em>以后</em></li>
+          <li class="dg-more">……</li>
+        </ul>
       </div>
+      <p class="dg-caption">核心和界面是两个程序，靠命名管道传 JSON；界面里没有功能逻辑，所以换一种界面技术，只要会收发这些 JSON 就行。</p>
 
       <!-- 各版本用什么技术：电脑上是表格，手机上每行变成一张卡片 -->
       <h3 class="tech-title">各版本用什么技术</h3>

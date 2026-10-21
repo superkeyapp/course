@@ -160,19 +160,39 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; color: var(--text-2); }
 .note strong { color: var(--text); }
 
-/* 架构图 */
-.arch { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.arch-core { width: 100%; max-width: 360px; padding: 18px; border-radius: var(--radius); background: var(--brand); color: #fff; text-align: center; }
-.arch-core strong { display: block; font-size: 20px; }
-.arch-core span { font-size: 14px; opacity: 0.9; }
-.arch-uis { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.ui { position: relative; padding: 12px 12px 30px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
-.ui strong { display: block; font-size: 15px; }
-.ui span { display: block; font-size: 13px; color: var(--text-2); line-height: 1.5; }
-.ui em, .tree em { position: absolute; left: 12px; bottom: 8px; font-style: normal; font-size: 12px; color: var(--text-2); }
-.ui-std { border-color: var(--brand); background: #f3f8ff; }
-.ui-std em { color: var(--brand); font-weight: 600; }
-.ui-lab { border-style: dashed; background: #fafafa; }   /* 试验项目：虚线框，和正式的界面区分开 */
+/* 架构图：左边核心，中间命名管道，右边各种界面（手机上从上到下） */
+.diagram { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 980px; margin: 0 auto; }
+.dg-core { padding: 18px; border-radius: var(--radius); background: var(--brand); color: #fff; }
+.dg-core > strong { display: block; font-size: 22px; }
+.dg-core > small { display: block; font-size: 13px; opacity: 0.85; }
+.dg-features { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 12px 0 0; padding: 0; }
+.dg-features li { padding: 1px 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.18); font-size: 13px; }
+.dg-inproc { margin-top: 14px; padding: 10px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.95); color: var(--text); font-size: 13px; }
+.dg-inproc b { display: block; margin-bottom: 4px; }
+.dg-inproc span { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 0; }
+/* 中间：管道。手机上是竖着的箭头 */
+.dg-pipe { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0; text-align: center; }
+.dg-pipe strong { font-size: 15px; color: var(--text); }
+.dg-arrow { width: 4px; height: 40px; border-radius: 2px; background: linear-gradient(var(--brand), #8ab4f8); position: relative; }
+.dg-arrow::before, .dg-arrow::after { content: ""; position: absolute; left: 50%; border: 7px solid transparent; transform: translateX(-50%); }
+.dg-arrow::before { top: -12px; border-bottom-color: var(--brand); }
+.dg-arrow::after { bottom: -12px; border-top-color: #8ab4f8; }
+.dg-pipe .dg-json { text-align: left; }
+.dg-pipe code { max-width: 100%; padding: 3px 8px; border-radius: 6px; background: #1f2a3a; color: #c8e1ff; font: 12px Consolas, "Cascadia Mono", monospace; white-space: nowrap; }
+/* 右边：各种界面，左边一条竖线连起来 */
+.dg-uis { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 3px solid #8ab4f8; display: grid; gap: 8px; }
+.dg-uis li { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px;
+  border-radius: 10px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 15px; }
+.dg-uis li::before { content: ""; position: absolute; left: -21px; top: 50%; width: 18px; height: 3px; background: #8ab4f8; }
+.dg-uis .dg-future { border-style: dashed; background: #fafafa; color: #9aa0a6; }
+.dg-uis .dg-future::before { background: repeating-linear-gradient(90deg, #b8bec7 0 4px, transparent 4px 7px); }
+.dg-uis .dg-more { justify-content: center; border: 0; background: none; color: #9aa0a6; letter-spacing: 4px; }
+.dg-uis .dg-more::before { display: none; }
+.diagram em { flex-shrink: 0; font-style: normal; font-size: 12px; font-weight: 600; padding: 0 8px; border-radius: 9px; background: #eceff3; color: var(--text-2); }
+.diagram em.std { background: var(--brand-soft); color: var(--brand); }
+.diagram em.adv { background: #e6f4ea; color: #137333; }
+.diagram em.full { background: #f3e8fd; color: #8430ce; }
+.dg-caption { max-width: 760px; margin: 18px auto 0; text-align: center; font-size: 14px; color: var(--text-2); }
 
 /* 各版本技术对比：手机上每行一张卡片，电脑上是表格 */
 .tech-title { margin: 40px 0 0; font-size: 20px; text-align: center; }
@@ -324,7 +344,12 @@ a { color: inherit; text-decoration: none; }
   .m-final { font-size: 22px; }
   .moats { grid-template-columns: repeat(3, 1fr); }
   .section h2, .final h2 { font-size: 32px; }
-  .arch-uis { grid-template-columns: repeat(3, 1fr); max-width: 820px; }
+  /* 架构图横排：核心 | 管道 | 界面 */
+  .diagram { grid-template-columns: 1.1fr 1fr 0.9fr; align-items: center; }
+  .dg-pipe { padding: 0 16px; }
+  .dg-arrow { width: 100%; height: 4px; background: linear-gradient(90deg, var(--brand), #8ab4f8); margin: 10px 0; }
+  .dg-arrow::before { top: 50%; left: -12px; transform: translateY(-50%); border-color: transparent; border-right-color: var(--brand); }
+  .dg-arrow::after { top: 50%; bottom: auto; left: auto; right: -12px; transform: translateY(-50%); border-color: transparent; border-left-color: #8ab4f8; }
   .plans { grid-template-columns: 1fr 1fr; max-width: 1080px; }
   .who { grid-template-columns: repeat(3, 1fr); }
   .cost-stats { grid-template-columns: repeat(3, 1fr); }

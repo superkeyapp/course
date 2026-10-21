@@ -26,7 +26,6 @@ python -m http.server 5180
 - 客服微信：微信号填到 `main.js` 顶部的 `WECHAT.id`；二维码图片放到 `assets/wechat-qr.png`，再把 `main.js` 的 `WECHAT.qr` 和 `index.html` 里“联系客服”那张图的地址改过来
 - 介绍视频：B 站地址填到 `index.html` 里 `.js-video` 的 `data-url`
 - 完整版的其他权益、编程基础要求、用到的 AI 工具、作者介绍、源码能否商用、B 站和抖音账号
-- 课程里从零实现哪一两个核心功能
 
 ## 约定
 

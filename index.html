@@ -36,7 +36,7 @@
       <p class="badge">众筹进行中 · 早鸟价 <span class="todo">截止日期待定</span></p>
       <h1>完全用 <em>Vibe Coding</em>，<br class="br-wide">开发一款商业级 Windows 软件</h1>
       <p class="hero-sub">
-        从需求分析到发布上线，全程和 AI 一起写代码，做出「超级快捷键」：
+        从需求分析到发布上线，全程不手写代码，和 AI 一起做出「超级快捷键」：
         快捷键、鼠标手势、屏幕边缘……装好就能用，<strong>已经在官网免费发布</strong>。
       </p>
       <div class="hero-actions">
@@ -106,21 +106,23 @@
     </div>
   </section>
 
-  <!-- 3. 课程怎么学 -->
+  <!-- 3. 课程怎么学：按项目真实的开发过程，不点名具体功能 -->
   <section id="learn" class="section section-soft">
     <div class="wrap">
-      <h2>课程怎么学</h2>
-      <p class="section-sub">走一遍真实的商业软件开发流程，每一步都是和 AI 一起完成的。</p>
+      <h2>这门课讲什么</h2>
+      <p class="section-sub">不手写代码，指挥 AI 把软件做出来。按这个项目真实的开发过程，一步一步来。</p>
       <ol class="steps">
-        <li><strong>分析需求</strong><span>从零开始：做什么、给谁用、做到什么程度算完成。</span></li>
-        <li><strong>设计架构</strong><span>一个 C++ 核心，多套界面；核心和界面怎么分工、怎么通信。</span></li>
-        <li><strong>和 AI 一起实现核心功能</strong><span>从零写出 <span class="todo">一两个核心功能（如快捷键、鼠标手势）</span>，包括测试。</span></li>
-        <li><strong>美化界面</strong><span>把 Win32 设置界面做得好看、好用。</span></li>
-        <li><strong>对接 WinUI</strong><span>给同一个核心换上 Windows 11 风格的 WinUI 界面。</span></li>
+        <li><strong>让 AI 做需求分析</strong><span>从一个想法出发，让 AI 帮你理清要做什么、给谁用。</span></li>
+        <li><strong>整理需求，确定核心功能</strong><span>哪些必须有、哪些以后再说，做到什么程度算完成。</span></li>
+        <li><strong>验证核心功能能不能实现</strong><span>先让 AI 做小实验，确认关键技术可行，再正式开工。</span></li>
+        <li><strong>开始编写</strong><span>让 AI 写出第一个能用的版本。</span></li>
+        <li><strong>重构到 C++</strong><span>从“能用”到“好维护”：分层架构、自动化测试。</span></li>
+        <li><strong>拆出核心</strong><span>核心和界面分开：界面用 JSON 描述，两边通过管道通信。</span></li>
+        <li><strong>C++ 核心 + WinUI</strong><span>给同一个核心换上 Windows 11 风格的界面。</span></li>
         <li><strong>打包发布</strong><span>安装包、官网、演示视频，真正发布出去。</span></li>
       </ol>
       <div class="note">
-        <strong>说清楚：</strong>视频里从零实现一两个核心功能，把完整流程走一遍；其余功能讲解实现思路，并提供完整源码。
+        <strong>全程不手写代码：</strong>每一步都是描述需求、让 AI 实现、验收结果。视频里把这个流程完整走一遍；不是每个功能都在视频里重做一遍，其余功能讲解思路，并提供完整源码。
       </div>
     </div>
   </section>
@@ -161,7 +163,7 @@
             <li>C++ 核心完整源码</li>
             <li>Win32 界面完整源码</li>
             <li>WinUI 界面完整源码（含 .NET 公共客户端库）</li>
-            <li>视频课程：需求分析 → 实现核心功能 → 美化界面 → 对接 WinUI</li>
+            <li>视频课程：需求分析 → 验证 → 编写 → 重构到 C++ → 拆出核心 → 对接 WinUI → 打包发布</li>
             <li>设计规范、项目文档</li>
             <li>微信答疑群</li>
           </ul>
@@ -274,7 +276,7 @@
       <h2>常见问题</h2>
       <div class="faq">
         <details><summary>买之前能先试用吗？</summary><p>能。软件在官网免费下载，课程教的就是怎么把它做出来。<a class="link js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">去官网下载</a></p></details>
-        <details><summary>视频里所有功能都从零写一遍吗？</summary><p>不是。视频里从零实现一两个核心功能，把需求分析、实现、美化界面、对接 WinUI 的完整流程走一遍；其余功能讲解实现思路，并提供完整源码。</p></details>
+        <details><summary>视频里所有功能都从零写一遍吗？</summary><p>不是。视频里把需求分析、验证、编写、重构、拆出核心、对接 WinUI、打包发布的完整流程走一遍；不是每个功能都重做一遍，其余功能讲解思路，并提供完整源码。</p></details>
         <details><summary>标准版和完整版有什么区别？</summary><p>核心是同一个。标准版包含 Win32 和 WinUI 两套界面；完整版再加 WPF、Electron、Tauri 三套界面。每个项目都带自己的打包脚本，拿到就能打出安装包。</p></details>
         <details><summary>试验包是什么？</summary><p>Direct2D 自绘界面和 aardio 界面两个试验项目，没有做完，也不再继续做。按现状提供源码，不保证完整可用，以后不更新，适合想研究不同界面技术的人。只能和完整版一起买，加 ¥150，需要的话请<a class="link js-contact" href="#contact">联系客服</a>了解或购买。</p></details>
         <details><summary>遇到问题怎么办？</summary>

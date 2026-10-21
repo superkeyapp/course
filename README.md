@@ -115,7 +115,7 @@ location /course/assets/ {
 
 本仓库（`superkeyapp/course`，公开）已经开启 GitHub Pages，网址：<https://superkeyapp.github.io/course/>
 
-**平时不用手动部署**：把改动推送到 `master` 分支，GitHub Actions（`.github/workflows/deploy.yml`）会自动
+**平时不用手动部署**：把改动推送到 `main` 分支，GitHub Actions（`.github/workflows/deploy.yml`）会自动
 `npm run build` 并发布 `dist/`，一两分钟后生效。进度在仓库的 Actions 页面查看；也可以在那里手动运行“Deploy”。
 GitHub Pages 默认缓存 10 分钟，更新后最多等 10 分钟就能看到，不需要另外设置。
 

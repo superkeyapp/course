@@ -161,6 +161,22 @@
       </div>
       <p class="dg-caption">核心和界面是两个程序，靠命名管道传 JSON；界面里没有功能逻辑，所以换一种界面技术，只要会收发这些 JSON 就行。</p>
 
+      <!-- 为什么这样设计：真实原因是省资源，不是炫技 -->
+      <div class="why">
+        <h3>为什么要这样设计？不是为了炫技</h3>
+        <p>快捷键、手势要 24 小时在后台待命，常驻的程序必须足够省。</p>
+        <div class="mem">
+          <div class="mem-row"><span>核心常驻</span><div class="mem-bar"><i style="width: 11%"></i></div><b>约 15 MB</b></div>
+          <div class="mem-row"><span>WinUI 界面开着时</span><div class="mem-bar"><i class="big" style="width: 100%"></i></div><b>约 134 MB</b></div>
+          <small>本机实测（任务管理器里的内存）</small>
+        </div>
+        <ul>
+          <li>WinUI、WPF、Electron、Tauri 这类界面技术，光是开着就要占上百 MB 内存。要是让它们常驻后台，这些内存就一直占着。</li>
+          <li>所以常驻后台的只有轻量的 C++ 核心；设置界面只在打开时运行，<strong>关掉就退出，内存全部释放</strong>。</li>
+          <li>顺带的好处：功能都在核心里，换一种界面技术不用重写功能。</li>
+        </ul>
+      </div>
+
       <!-- 各版本用什么技术：电脑上是表格，手机上每行变成一张卡片 -->
       <h3 class="tech-title">各版本用什么技术</h3>
       <p class="tech-sub">所有版本的核心都是同一个：C++ 写的，用 Win32 API 监听键盘鼠标，实现全部功能；界面只负责显示和设置。</p>

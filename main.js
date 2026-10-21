@@ -3,6 +3,11 @@
   const OFFICIAL_SITE = 'https://superkeyapp.github.io'
   // 客服微信：只改这里。二维码图片换成真的以后，把 qr 改成 'assets/wechat-qr.png'（页面底部那张在 index.html 里也改一下）
   const WECHAT = { id: '', qr: 'assets/wechat-qr.svg' }
+  // 购买：两个档位各对应课程网站上的一个课程，点“参与众筹”直接跳过去（购买、付款都在课程网站上完成）
+  const PLAN_LINKS = {
+    standard: '',   // 标准版 ¥298 的课程页
+    full: '',       // 完整版的课程页
+  }
   const isPhone = /Android|iPhone|iPad|iPod|HarmonyOS|Mobile/i.test(navigator.userAgent)
 
   // ---- 弹窗 ----
@@ -81,11 +86,18 @@
     })
   })
 
-  // ---- 参与众筹：付款方式定了以后，把这里换成真正的付款链接或二维码 ----
+  // ---- 参与众筹：跳到课程网站上对应的课程；网址还没填时提示 ----
   document.querySelectorAll('.js-join[data-plan]').forEach((a) => {
+    const url = PLAN_LINKS[a.dataset.plan]
+    if (url) {
+      a.href = url
+      a.target = '_blank'
+      a.rel = 'noopener'
+      return
+    }
     a.addEventListener('click', (e) => {
       e.preventDefault()
-      showDialog(`参与众筹：${a.dataset.plan}`, '付款方式即将公布，敬请关注。')
+      showDialog(`参与众筹：${a.dataset.name}`, '购买链接即将公布，敬请关注。也可以先加客服微信了解。')
     })
   })
 

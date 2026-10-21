@@ -54,10 +54,14 @@ a { color: inherit; text-decoration: none; }
 .br-wide { display: none; }
 .hero-sub { margin: 16px auto 0; max-width: 680px; font-size: 16px; color: var(--text-2); }
 .hero-actions { display: flex; flex-direction: column; gap: 12px; margin: 24px auto 0; max-width: 360px; }
-.progress { margin: 22px auto 0; max-width: 420px; font-size: 14px; color: var(--text-2); }
-.progress p { margin: 6px 0 0; }
-.progress-bar { height: 8px; border-radius: 4px; background: #e2e8f2; overflow: hidden; }
-.progress-bar span { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
+/* 众筹怎么进行：三步 */
+.flow { counter-reset: flow; list-style: none; margin: 24px auto 0; padding: 0; max-width: 860px; display: grid; gap: 10px; text-align: left; }
+.flow li { position: relative; padding: 12px 14px 12px 50px; border-radius: 12px; background: #fff; border: 1px solid #dbe6f7; }
+.flow li::before { counter-increment: flow; content: counter(flow); position: absolute; left: 14px; top: 13px; width: 26px; height: 26px;
+  border-radius: 50%; background: var(--brand); color: #fff; font-size: 14px; font-weight: 700; display: grid; place-items: center; }
+.flow strong { display: block; font-size: 15px; }
+.flow span { font-size: 14px; color: var(--text-2); }
+.refund-note { margin: 12px auto 0; max-width: 860px; font-size: 13px; color: #b06000; text-align: center; }
 
 /* 介绍视频的封面：点了去 B 站 */
 .video-cover { position: relative; display: block; margin: 32px auto 0; max-width: 960px; border-radius: var(--radius);
@@ -228,6 +232,7 @@ a { color: inherit; text-decoration: none; }
   .br-wide { display: inline; }
   .hero-sub { font-size: 18px; }
   .hero-actions { flex-direction: row; justify-content: center; max-width: none; }
+  .flow { grid-template-columns: repeat(3, 1fr); }
   .section { padding: 72px 0; }
   .section h2, .final h2 { font-size: 32px; }
   /* 12 列：有视频的三个一行，只有文字的四个一行 */

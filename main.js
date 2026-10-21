@@ -1,4 +1,4 @@
-// 落地页的交互：功能视频滑到眼前才播放、手机上点“下载”给出电脑网址、付款和介绍视频（还没定时）的提示
+// 落地页的交互：手机上点“下载”给出电脑网址、联系客服、购买链接和介绍视频（还没填时）的提示
 (() => {
   // ======== 发布前要填的内容：都在这里，填好就生效；空着的地方页面上会给出“即将公布”之类的提示 ========
   const CONFIG = {
@@ -149,17 +149,4 @@
     social.hidden = parts.length === 0
   }
 
-  // ---- 功能演示视频：滑到眼前才加载、播放，滑走就暂停（省流量） ----
-  const videos = document.querySelectorAll('video.js-autoplay')
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      for (const { target, isIntersecting } of entries) {
-        if (isIntersecting) target.play().catch(() => {})
-        else target.pause()
-      }
-    }, { threshold: 0.4 })
-    videos.forEach((v) => io.observe(v))
-  } else {
-    videos.forEach((v) => { v.autoplay = true })
-  }
 })()

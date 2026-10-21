@@ -66,6 +66,10 @@ a { color: inherit; text-decoration: none; }
 .hero h1 { font-size: 30px; font-weight: 800; letter-spacing: 0.5px; }
 .hero h1 em { font-style: normal; color: var(--brand); }
 .br-wide { display: none; }
+/* 软件名 + 功能标签：看完首屏就知道是什么软件、能做什么 */
+.hero-product { margin: 14px 0 0; font-size: 24px; font-weight: 800; color: var(--brand); letter-spacing: 1px; }
+.hero-ways { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 8px; list-style: none; margin: 12px auto 0; padding: 0; max-width: 760px; }
+.hero-ways li { padding: 2px 12px; border-radius: 14px; border: 1px solid #c9d8f2; background: #fff; font-size: 13px; color: var(--text-2); }
 .hero-sub { margin: 16px auto 0; max-width: 680px; font-size: 16px; color: var(--text-2); }
 .hero-actions { display: flex; flex-direction: column; gap: 12px; margin: 24px auto 0; max-width: 360px; }
 /* 众筹怎么进行：三步 */
@@ -254,6 +258,8 @@ a { color: inherit; text-decoration: none; }
   .topbar .btn { margin-left: 8px; }
   .hero { padding: 64px 0 56px; }
   .hero h1 { font-size: 46px; }
+  .hero-product { font-size: 30px; }
+  .hero-ways li { font-size: 14px; }
   .br-wide { display: inline; }
   .hero-sub { font-size: 18px; }
   .hero-actions { flex-direction: row; justify-content: center; max-width: none; }

@@ -7,8 +7,9 @@
       standard: '',   // 标准版 ¥298 的课程页网址
       full: '',       // 完整版 ¥598 的课程页网址
     },
-    // 客服微信：微信号；二维码图片放到 assets/wechat-qr.png 后把这里改成 'assets/wechat-qr.png'
-    wechat: { id: '', qr: 'assets/wechat-qr.svg' },
+    // 客服微信：微信号；二维码图片放到 public/ 目录（如 public/wechat-qr.png），这里写文件名。
+    // 以后换二维码时换一个新文件名（如 wechat-qr-2.png），否则用户浏览器可能还显示缓存里的旧图
+    wechat: { id: '', qr: 'wechat-qr.svg' },
     // 课程介绍视频的 B 站地址（首屏那个大封面点了跳过去）
     videoUrl: '',
     // B 站、抖音：name 是显示的账号名，url 是主页地址；都空着时页面底部不显示这一行

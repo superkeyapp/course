@@ -184,10 +184,8 @@ a { color: inherit; text-decoration: none; }
 .dg-uis li { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px;
   border-radius: 10px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 15px; }
 .dg-uis li::before { content: ""; position: absolute; left: -21px; top: 50%; width: 18px; height: 3px; background: #8ab4f8; }
-.dg-uis .dg-future { border-style: dashed; background: #fafafa; color: #9aa0a6; }
+.dg-uis .dg-future { border-style: dashed; background: #fafafa; color: #9aa0a6; font-weight: 600; font-size: 14px; }
 .dg-uis .dg-future::before { background: repeating-linear-gradient(90deg, #b8bec7 0 4px, transparent 4px 7px); }
-.dg-uis .dg-more { justify-content: center; border: 0; background: none; color: #9aa0a6; letter-spacing: 4px; }
-.dg-uis .dg-more::before { display: none; }
 .diagram em { flex-shrink: 0; font-style: normal; font-size: 12px; font-weight: 600; padding: 0 8px; border-radius: 9px; background: #eceff3; color: var(--text-2); }
 .diagram em.std { background: var(--brand-soft); color: var(--brand); }
 .diagram em.adv { background: #e6f4ea; color: #137333; }

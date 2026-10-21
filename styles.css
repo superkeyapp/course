@@ -188,13 +188,10 @@ a { color: inherit; text-decoration: none; }
 .tree span { color: var(--text-2); flex: 1 1 260px; }
 .tree em { position: static; padding: 0 8px; border-radius: 9px; background: #eceff3; font-size: 12px; }
 .tree em.std { background: var(--brand-soft); color: var(--brand); font-weight: 600; }
-/* 重要的（核心、课程主讲）用强调红，次要的淡一些 */
+/* 软件源码 SuperKey/ 用强调红标出，下面的子目录保持原来的颜色 */
 .tree-legend { margin: -16px auto 18px; text-align: center; font-size: 14px; color: var(--text-2); }
 .tree-legend .key-mark { color: var(--accent-dark); font-weight: 700; }
 .tree .key > code, .tree .key > span { color: var(--accent-dark); font-weight: 700; }
-.tree li.key { background: var(--accent-soft); margin: 0 -8px; padding-left: 8px; padding-right: 8px; border-radius: 6px; border-bottom-color: #fff; }
-.tree li.dim > code { color: #80868b; font-weight: 500; }
-.tree li.dim > span { color: #9aa0a6; }
 .tree em.free { background: #e6f4ea; color: #188038; }
 .tree em.lab { background: #f1f3f4; color: #80868b; border: 1px dashed #b8bec7; }
 

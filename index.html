@@ -151,6 +151,22 @@
           <div class="ui ui-lab"><strong>Direct2D、aardio 界面</strong><span>试验项目，未完成</span><em>试验包</em></div>
         </div>
       </div>
+
+      <!-- 各版本用什么技术：电脑上是表格，手机上每行变成一张卡片 -->
+      <h3 class="tech-title">各版本用什么技术</h3>
+      <p class="tech-sub">所有版本的核心都是同一个：C++ 写的，用 Win32 API 监听键盘鼠标，实现全部功能；界面只负责显示和设置。</p>
+      <table class="tech">
+        <thead><tr><th>版本</th><th>界面技术</th><th>语言</th><th>和核心怎么连</th><th>特点</th><th>档位</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" data-label="版本">Win32 版</th><td data-label="界面技术">Win32 API 系统控件</td><td data-label="语言">C++</td><td data-label="和核心怎么连">和核心编在同一个程序里，直接调用</td><td data-label="特点">单个文件约 3 MB，不用装任何运行库</td><td data-label="档位"><em class="std">标准版</em></td></tr>
+          <tr><th scope="row" data-label="版本">WinUI 版</th><td data-label="界面技术">WinUI 3（Windows App SDK）</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">Windows 11 设置风格，支持深色</td><td data-label="档位"><em class="std">标准版</em></td></tr>
+          <tr><th scope="row" data-label="版本">WPF 版</th><td data-label="界面技术">WPF</td><td data-label="语言">C# / .NET</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">最成熟的 .NET 桌面技术</td><td data-label="档位"><em class="">完整版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Electron 版</th><td data-label="界面技术">Electron + React + Fluent UI</td><td data-label="语言">TypeScript</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">网页技术做桌面软件</td><td data-label="档位"><em class="">完整版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Tauri 版</th><td data-label="界面技术">Tauri 2 + 同一套 React 界面</td><td data-label="语言">TypeScript + Rust</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">用系统自带的 WebView2，体积比 Electron 小</td><td data-label="档位"><em class="">完整版</em></td></tr>
+          <tr><th scope="row" data-label="版本">Direct2D 版</th><td data-label="界面技术">Direct2D 自绘</td><td data-label="语言">C++</td><td data-label="和核心怎么连">和核心编在同一个程序里</td><td data-label="特点">每个控件自己画</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
+          <tr><th scope="row" data-label="版本">aardio 版</th><td data-label="界面技术">aardio 原生窗口</td><td data-label="语言">aardio</td><td data-label="和核心怎么连">命名管道 + JSON</td><td data-label="特点">国产语言，小巧</td><td data-label="档位"><em class="lab">试验包</em></td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

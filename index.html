@@ -202,29 +202,30 @@
     <div class="wrap">
       <h2>项目目录</h2>
       <p class="section-sub">整个项目长什么样。点开看每个目录是什么，标签表示在哪个档位里。</p>
+      <p class="tree-legend"><span class="key-mark">红色</span>是核心，也是课程主要讲的部分；灰色是其他版本和辅助的东西。</p>
       <div class="tree">
         <details open>
           <summary><code>superkey/</code><span>工作目录</span></summary>
-          <details>
-            <summary><code>SuperKey/</code><span>软件源码</span></summary>
+          <details open>
+            <summary class="key"><code>SuperKey/</code><span>软件源码</span></summary>
             <ul>
-              <li><code>superkey/</code><span>C++ 核心 + Win32 界面：快捷键与手势引擎、配置、托盘，给其他界面用的管道服务</span><em class="std">标准版</em></li>
-              <li><code>superkey-win32/</code><span>Win32 版发布：核心 + 设置窗口，单个 exe 就能运行</span><em class="std">标准版</em></li>
-              <li><code>superkey-client/</code><span>.NET 公共客户端库：.NET 界面连接核心用</span><em class="std">标准版</em></li>
-              <li><code>superkey-winui/</code><span>WinUI 3 界面：Windows 11 设置风格</span><em class="std">标准版</em></li>
+              <li class="key"><code>superkey/</code><span>C++ 核心 + Win32 界面：快捷键与手势引擎、配置、托盘，给其他界面用的管道服务；所有功能都在这里</span><em class="std">标准版</em></li>
+              <li class="key"><code>superkey-win32/</code><span>Win32 版发布：核心 + 设置窗口，单个 exe 就能运行</span><em class="std">标准版</em></li>
+              <li class="key"><code>superkey-winui/</code><span>WinUI 3 界面：Windows 11 设置风格</span><em class="std">标准版</em></li>
+              <li><code>superkey-client/</code><span>.NET 公共客户端库：WinUI 等 .NET 界面连接核心用</span><em class="std">标准版</em></li>
               <li><code>design/</code><span>设计规范：图标、颜色、尺寸，人或 AI 都能照着还原</span><em class="std">标准版</em></li>
               <li><code>docs/</code><span>需求、计划、打包与发布文档</span><em class="std">标准版</em></li>
-              <li><code>superkey-wpf/</code><span>WPF 界面（.NET）</span><em>完整版</em></li>
-              <li><code>superkey-electron/</code><span>Electron 界面（TypeScript、React）</span><em>完整版</em></li>
-              <li><code>superkey-tauri/</code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em>完整版</em></li>
-              <li><code>superkey-aardio/</code><span>aardio 界面（开发到一半，按现状提供）</span><em class="lab">试验包</em></li>
-              <li><code>superkey-d2d/</code><span>Direct2D 自绘界面（功能完整，未经实际使用，按现状提供）</span><em class="lab">试验包</em></li>
               <li><code>tools/</code><span>各项目共用的打包脚本、安装包模板</span><em class="std">标准版</em></li>
+              <li class="dim"><code>superkey-wpf/</code><span>WPF 界面（.NET）</span><em>完整版</em></li>
+              <li class="dim"><code>superkey-electron/</code><span>Electron 界面（TypeScript、React）</span><em>完整版</em></li>
+              <li class="dim"><code>superkey-tauri/</code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em>完整版</em></li>
+              <li class="dim"><code>superkey-aardio/</code><span>aardio 界面（开发到一半，按现状提供）</span><em class="lab">试验包</em></li>
+              <li class="dim"><code>superkey-d2d/</code><span>Direct2D 自绘界面（功能完整，未经实际使用，按现状提供）</span><em class="lab">试验包</em></li>
             </ul>
           </details>
           <ul>
-            <li><code>superkeyapp.github.io/</code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
-            <li><code>keycast/</code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em>完整版</em></li>
+            <li class="dim"><code>superkeyapp.github.io/</code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
+            <li class="dim"><code>keycast/</code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em>完整版</em></li>
           </ul>
         </details>
       </div>

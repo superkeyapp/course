@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>完全用 Vibe Coding 开发商业级 Windows 软件 · 超级快捷键实战课</title>
+  <meta name="description" content="从需求分析到发布上线，全程和 AI 一起写代码，做出已经发布的 Windows 效率工具「超级快捷键」：C++ 核心 + Win32 界面 + WinUI 界面，完整源码。">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--
+  内容都在这一个文件里，从上往下就是页面的顺序（也是录介绍视频时讲的顺序）。
+  还没定的内容写成 <span class="todo">…</span>，页面上显示成黄底，定了以后替换掉。
+-->
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top"><img src="assets/logo.svg" alt="" width="28" height="28">超级快捷键实战课</a>
+    <nav class="topnav">
+      <a href="#features">软件功能</a>
+      <a href="#learn">课程内容</a>
+      <a href="#price">价格</a>
+      <a href="#tree">项目目录</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="btn btn-brand btn-sm js-join" href="#price">参与众筹</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. 首屏 -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="badge">众筹进行中 · 早鸟价 <span class="todo">截止日期待定</span></p>
+      <h1>完全用 <em>Vibe Coding</em>，<br class="br-wide">开发一款商业级 Windows 软件</h1>
+      <p class="hero-sub">
+        从需求分析到发布上线，全程和 AI 一起写代码，做出「超级快捷键」：
+        快捷键、鼠标手势、屏幕边缘……装好就能用，<strong>已经在官网免费发布</strong>。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-brand btn-lg js-join" href="#price">参与众筹 ¥299 起</a>
+        <a class="btn btn-outline btn-lg js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">免费下载体验软件</a>
+      </div>
+      <div class="progress" aria-label="众筹进度">
+        <div class="progress-bar"><span style="width: 30%"></span></div>
+        <p>已有 <strong class="todo">N</strong> 人参与 · 目标 <span class="todo">N</span> 人 · 未达成全额退款</p>
+      </div>
+
+      <!-- 介绍视频：只放封面，点击去 B 站看（大视频不放在自己的网站上，加载慢） -->
+      <a class="video-cover js-video" href="#" data-url="" aria-label="观看课程介绍视频">
+        <img src="assets/screens/overview.webp" alt="超级快捷键的设置界面" width="1600" height="1000">
+        <span class="play" aria-hidden="true"></span>
+        <span class="video-caption">3 分钟看懂这门课 · 在 B 站观看</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 2. 软件能做什么 -->
+  <section id="features" class="section">
+    <div class="wrap">
+      <h2>先看看要做出来的软件</h2>
+      <p class="section-sub">「超级快捷键」：一个装好就能用的 Windows 效率工具。下面这些，全部是课程里那个 C++ 核心实现的。</p>
+      <div class="feature-grid">
+        <article class="feature">
+          <video src="assets/media/hotkey.mp4" poster="assets/media/hotkey.jpg" muted loop playsinline preload="none" class="js-autoplay"></video>
+          <h3>快捷键</h3>
+          <p>一个组合键，打开常用的网站和软件。</p>
+        </article>
+        <article class="feature">
+          <video src="assets/media/gesture.mp4" poster="assets/media/gesture.jpg" muted loop playsinline preload="none" class="js-autoplay"></video>
+          <h3>鼠标手势</h3>
+          <p>按住右键划一下：后退、刷新、关标签页、最小化。在播放器里自动换成切歌、调音量。</p>
+        </article>
+        <article class="feature">
+          <video src="assets/media/phrase.mp4" poster="assets/media/phrase.jpg" muted loop playsinline preload="none" class="js-autoplay"></video>
+          <h3>短语替换</h3>
+          <p>打几个字母，出来一整段：日期、邮箱、常用回复。</p>
+        </article>
+        <article class="feature feature-text">
+          <div class="feature-icon" aria-hidden="true">◰</div>
+          <h3>屏幕边缘</h3>
+          <p>鼠标放到屏幕角上滚一下：调音量、调亮度、切歌。</p>
+        </article>
+        <article class="feature feature-text">
+          <div class="feature-icon" aria-hidden="true">⎘</div>
+          <h3>复制搜索</h3>
+          <p>选中文字，连按两次 Ctrl+C，再按 B 就搜百度、按 T 就翻译。</p>
+        </article>
+        <article class="feature feature-text">
+          <div class="feature-icon" aria-hidden="true">⇪</div>
+          <h3>CapsLock 增强</h3>
+          <p>按住 CapsLock，IJKL 变成方向键，手不离主键区。</p>
+        </article>
+        <article class="feature feature-text">
+          <div class="feature-icon" aria-hidden="true">⇶</div>
+          <h3>多步按键</h3>
+          <p>一个快捷键连着做好几件事：按键、打字、打开软件、窗口操作。</p>
+        </article>
+      </div>
+      <p class="center-cta">这些功能现在就能用 →
+        <a class="link js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">去官网免费下载</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. 课程怎么学 -->
+  <section id="learn" class="section section-soft">
+    <div class="wrap">
+      <h2>课程怎么学</h2>
+      <p class="section-sub">走一遍真实的商业软件开发流程，每一步都是和 AI 一起完成的。</p>
+      <ol class="steps">
+        <li><strong>分析需求</strong><span>从零开始：做什么、给谁用、做到什么程度算完成。</span></li>
+        <li><strong>设计架构</strong><span>一个 C++ 核心，多套界面；核心和界面怎么分工、怎么通信。</span></li>
+        <li><strong>和 AI 一起实现核心功能</strong><span>从零写出 <span class="todo">一两个核心功能（如快捷键、鼠标手势）</span>，包括测试。</span></li>
+        <li><strong>美化界面</strong><span>把 Win32 设置界面做得好看、好用。</span></li>
+        <li><strong>对接 WinUI</strong><span>给同一个核心换上 Windows 11 风格的 WinUI 界面。</span></li>
+        <li><strong>打包发布</strong><span>安装包、官网、演示视频，真正发布出去。</span></li>
+      </ol>
+      <div class="note">
+        <strong>说清楚：</strong>视频里从零实现一两个核心功能，把完整流程走一遍；其余功能讲解实现思路，并提供完整源码。
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 架构：一个核心，多套界面 -->
+  <section id="arch" class="section">
+    <div class="wrap">
+      <h2>一个核心，多套界面</h2>
+      <p class="section-sub">所有功能都在 C++ 核心里；界面可以换。这是一个软件，不是几个软件。</p>
+      <div class="arch">
+        <div class="arch-core">
+          <strong>C++ 核心</strong>
+          <span>快捷键、手势、屏幕边缘、短语……<br>所有功能都在这里</span>
+        </div>
+        <div class="arch-uis">
+          <div class="ui ui-std"><strong>Win32 界面</strong><span>经典风格，和核心编译在一起，单个文件约 3 MB</span><em>标准版</em></div>
+          <div class="ui ui-std"><strong>WinUI 界面</strong><span>Windows 11 风格，支持深色</span><em>标准版</em></div>
+          <div class="ui"><strong>WPF 界面</strong><span>.NET</span><em>完整版</em></div>
+          <div class="ui"><strong>Electron 界面</strong><span>网页技术（React）</span><em>完整版</em></div>
+          <div class="ui"><strong>Tauri 界面</strong><span>同一套网页界面，外壳换成 Rust</span><em>完整版</em></div>
+          <div class="ui"><strong>aardio 界面</strong><span>国产语言，小巧</span><em>完整版</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 价格 -->
+  <section id="price" class="section section-soft">
+    <div class="wrap">
+      <h2>两个档位</h2>
+      <p class="section-sub">核心是同一个，区别只在包含几套界面。</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>标准版</h3>
+          <p class="price"><small>¥</small>299</p>
+          <p class="plan-sub">核心 + 两套界面，完整走一遍开发流程</p>
+          <ul>
+            <li>C++ 核心完整源码</li>
+            <li>Win32 界面完整源码</li>
+            <li>WinUI 界面完整源码（含 .NET 公共客户端库）</li>
+            <li>视频课程：需求分析 → 实现核心功能 → 美化界面 → 对接 WinUI</li>
+            <li>设计规范、项目文档</li>
+          </ul>
+          <a class="btn btn-brand btn-block js-join" href="#" data-plan="标准版 ¥299">参与众筹</a>
+        </div>
+        <div class="plan plan-full">
+          <span class="plan-tag">全部内容</span>
+          <h3>完整版</h3>
+          <p class="price"><small>¥</small>999</p>
+          <p class="plan-sub">标准版全部内容，再加所有界面版本</p>
+          <ul>
+            <li>标准版的全部内容</li>
+            <li>WPF、Electron、Tauri、aardio 界面完整源码</li>
+            <li>Direct2D 自绘、duilib 界面（实验）</li>
+            <li>打包、安装包、发布脚本</li>
+            <li><span class="todo">其他权益待定（更新、答疑群等）</span></li>
+          </ul>
+          <a class="btn btn-brand btn-block js-join" href="#" data-plan="完整版 ¥999">参与众筹</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 项目目录 -->
+  <section id="tree" class="section">
+    <div class="wrap">
+      <h2>项目目录</h2>
+      <p class="section-sub">整个项目长什么样。点开看每个目录是什么，标签表示在哪个档位里。</p>
+      <div class="tree">
+        <details open>
+          <summary><code>superkey/</code><span>工作目录</span></summary>
+          <details>
+            <summary><code>SuperKey/</code><span>软件源码</span></summary>
+            <ul>
+              <li><code>superkey/</code><span>C++ 核心 + Win32 界面：快捷键与手势引擎、配置、托盘，给其他界面用的管道服务</span><em class="std">标准版</em></li>
+              <li><code>superkey-win32/</code><span>Win32 版发布：核心 + 设置窗口，单个 exe 就能运行</span><em class="std">标准版</em></li>
+              <li><code>superkey-client/</code><span>.NET 公共客户端库：.NET 界面连接核心用</span><em class="std">标准版</em></li>
+              <li><code>superkey-winui/</code><span>WinUI 3 界面：Windows 11 设置风格</span><em class="std">标准版</em></li>
+              <li><code>design/</code><span>设计规范：图标、颜色、尺寸，人或 AI 都能照着还原</span><em class="std">标准版</em></li>
+              <li><code>docs/</code><span>需求、计划、打包与发布文档</span><em class="std">标准版</em></li>
+              <li><code>superkey-wpf/</code><span>WPF 界面（.NET）</span><em>完整版</em></li>
+              <li><code>superkey-electron/</code><span>Electron 界面（TypeScript、React）</span><em>完整版</em></li>
+              <li><code>superkey-tauri/</code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em>完整版</em></li>
+              <li><code>superkey-aardio/</code><span>aardio 界面</span><em>完整版</em></li>
+              <li><code>superkey-d2d/</code><span>Direct2D 自绘界面（实验）</span><em>完整版</em></li>
+              <li><code>superkey-duilib/</code><span>duilib 界面（实验）</span><em>完整版</em></li>
+              <li><code>tools/</code><span>打包、安装包、演示视频录制脚本</span><em>完整版</em></li>
+            </ul>
+          </details>
+          <ul>
+            <li><code>superkeyapp.github.io/</code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
+            <li><code>keycast/</code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em class="todo">待定</em></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 众筹说明 -->
+  <section id="rules" class="section section-soft">
+    <div class="wrap">
+      <h2>众筹说明</h2>
+      <dl class="rules">
+        <div><dt>截止时间</dt><dd><span class="todo">待定</span></dd></div>
+        <div><dt>目标人数</dt><dd><span class="todo">待定</span></dd></div>
+        <div><dt>没达到目标</dt><dd>全额退款</dd></div>
+        <div><dt>开始交付</dt><dd><span class="todo">待定</span></dd></div>
+        <div><dt>怎么参与</dt><dd><span class="todo">付款方式待定</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 8. 适合谁 -->
+  <section id="who" class="section">
+    <div class="wrap">
+      <h2>适合谁</h2>
+      <div class="who">
+        <div><h3>想用 AI 做出完整软件的人</h3><p>不只是写个小 Demo，而是做到能发布、有人用。</p></div>
+        <div><h3>想学 Windows 桌面开发的人</h3><p>键盘鼠标钩子、托盘、进程通信、界面技术，一次看全。</p></div>
+        <div><h3>想看真实项目怎么组织的人</h3><p>架构、测试、文档、打包、官网，商业项目的完整样子。</p></div>
+      </div>
+      <p class="prepare"><strong>需要准备：</strong>一台 Windows 电脑；<span class="todo">编程基础要求、用到的 AI 工具待定</span>。</p>
+    </div>
+  </section>
+
+  <!-- 9. 关于作者 -->
+  <section id="about" class="section section-soft">
+    <div class="wrap">
+      <h2>关于作者</h2>
+      <p class="about"><span class="todo">作者介绍待定</span></p>
+    </div>
+  </section>
+
+  <!-- 10. 常见问题 -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2>常见问题</h2>
+      <div class="faq">
+        <details><summary>买之前能先试用吗？</summary><p>能。软件在官网免费下载，课程教的就是怎么把它做出来。<a class="link js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">去官网下载</a></p></details>
+        <details><summary>视频里所有功能都从零写一遍吗？</summary><p>不是。视频里从零实现一两个核心功能，把需求分析、实现、美化界面、对接 WinUI 的完整流程走一遍；其余功能讲解实现思路，并提供完整源码。</p></details>
+        <details><summary>标准版和完整版有什么区别？</summary><p>核心是同一个。标准版包含 Win32 和 WinUI 两套界面；完整版再加 WPF、Electron、Tauri、aardio 等所有界面版本。</p></details>
+        <details><summary>众筹没成功怎么办？</summary><p>全额退款。</p></details>
+        <details><summary>怎么交付？什么时候能看？</summary><p><span class="todo">待定</span></p></details>
+        <details><summary>源码可以商用吗？</summary><p><span class="todo">待定</span></p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. 底部 -->
+  <section class="final">
+    <div class="wrap">
+      <h2>和 AI 一起，做出一个真正的软件</h2>
+      <div class="hero-actions">
+        <a class="btn btn-brand btn-lg js-join" href="#price">参与众筹 ¥299 起</a>
+        <a class="btn btn-outline btn-lg js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">免费下载体验软件</a>
+      </div>
+      <p class="social">B 站：<span class="todo">账号待定</span> · 抖音：<span class="todo">账号待定</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">超级快捷键实战课 · 软件官网 <a href="https://superkeyapp.github.io" target="_blank" rel="noopener">superkeyapp.github.io</a></div>
+</footer>
+
+<!-- 手机上一直在屏幕底部的按钮 -->
+<div class="sticky-cta">
+  <span>早鸟价 <strong>¥299</strong> 起</span>
+  <a class="btn btn-brand js-join" href="#price">参与众筹</a>
+</div>
+
+<!-- 弹窗：手机上点“下载”、付款方式、视频还没上线 -->
+<div class="dialog" id="dialog" hidden>
+  <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+    <h3 id="dialog-title"></h3>
+    <p id="dialog-text"></p>
+    <div class="dialog-actions">
+      <button class="btn btn-outline" id="dialog-copy" hidden>复制网址</button>
+      <button class="btn btn-brand" id="dialog-close">知道了</button>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

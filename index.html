@@ -11,7 +11,8 @@
 <body>
 <!--
   内容都在这一个文件里，从上往下就是页面的顺序（也是录介绍视频时讲的顺序）。
-  还没定的内容写成 <span class="todo">…</span>，页面上显示成黄底，定了以后替换掉。
+  发布前要填的网址、微信号、账号都在 main.js 最上面的 CONFIG 里，这个文件里不用改。
+  临时占位的文字可以写成 <span class="todo">…</span>，页面上显示成黄底，发布前要全部替换掉。
 -->
 
 <header class="topbar">
@@ -33,7 +34,7 @@
   <!-- 1. 首屏 -->
   <section class="hero">
     <div class="wrap">
-      <p class="badge">源码已全部完成 · 众筹进行中 · 截止 <span class="todo">2027 年 1 月 20 日</span></p>
+      <p class="badge">源码已全部完成 · 众筹进行中 · 截止 2027 年 2 月 1 日</p>
       <h1>完全用 <em>Vibe Coding</em>，<br class="br-wide">开发一款商业级 Windows 软件</h1>
       <p class="hero-sub">
         从需求分析到发布上线，全程不手写代码，和 AI 一起做出「超级快捷键」：
@@ -53,7 +54,7 @@
       <p class="refund-note">源码一经发放，不支持全额退款；众筹没成功只退差价。</p>
 
       <!-- 介绍视频：只放封面，点击去 B 站看（大视频不放在自己的网站上，加载慢） -->
-      <a class="video-cover js-video" href="#" data-url="" aria-label="观看课程介绍视频">
+      <a class="video-cover js-video" href="#" aria-label="观看课程介绍视频">
         <img src="assets/screens/overview.webp" alt="超级快捷键的设置界面" width="1600" height="1000">
         <span class="play" aria-hidden="true"></span>
         <span class="video-caption">3 分钟看懂这门课 · 在 B 站观看</span>
@@ -194,7 +195,7 @@
         <div class="plan plan-full">
           <span class="plan-tag">推荐</span>
           <h3>完整版</h3>
-          <p class="price"><small>¥</small><span class="todo">598</span></p>
+          <p class="price"><small>¥</small>598</p>
           <p class="plan-sub">标准版全部内容，再加三套界面</p>
           <ul>
             <li class="key">付款后联系客服即可领取源码</li>
@@ -265,7 +266,7 @@
     <div class="wrap">
       <h2>众筹说明</h2>
       <dl class="rules">
-        <div><dt>众筹期</dt><dd>约 3 个月，截止 <span class="todo">2027 年 1 月 20 日</span></dd></div>
+        <div><dt>众筹期</dt><dd>约 3 个月，截止 2027 年 2 月 1 日</dd></div>
         <div><dt>目标</dt><dd>20 人</dd></div>
         <div><dt>源码</dt><dd>已经全部做好。付款后联系客服领取，也可以等众筹成功后和视频一起交付；同时加入微信群</dd></div>
         <div><dt>众筹成功</dt><dd>额外加一套 AI 编程视频，录好后在课程网站上观看。视频不教写代码，而是用 Vibe Coding 的方式，从需求分析、验证功能可行，到做出两个成熟的核心功能，最后制作宣传网站、写一些辅助工具（比如录演示视频用的按键显示），完整走一遍</dd></div>
@@ -336,9 +337,9 @@
       <h2>联系客服</h2>
       <p class="section-sub">有任何问题，或者想先聊聊再决定，都可以加客服微信。</p>
       <div class="contact">
-        <img class="qr" src="assets/wechat-qr.svg" alt="客服微信二维码" width="200" height="200">
+        <img class="qr js-wechat-qr" src="assets/wechat-qr.svg" alt="客服微信二维码" width="200" height="200">
         <div class="contact-info">
-          <p class="wx">微信号：<strong><span class="todo js-wechat-id">待定</span></strong></p>
+          <p class="wx">微信号：<strong><span class="js-wechat-id">即将公布</span></strong></p>
           <button class="btn btn-wechat js-copy-wechat" type="button">复制微信号</button>
           <p class="contact-tip">在微信里打开本页时，长按二维码即可识别添加；<br>也可以复制微信号，到微信里搜索添加。</p>
         </div>
@@ -355,7 +356,7 @@
         <a class="btn btn-outline btn-lg js-download" href="https://superkeyapp.github.io/download" target="_blank" rel="noopener">免费下载体验软件</a>
       </div>
       <p class="center-cta"><a class="link js-contact" href="#contact">联系客服微信</a></p>
-      <p class="social">B 站：<span class="todo">账号待定</span> · 抖音：<span class="todo">账号待定</span></p>
+      <p class="social js-social" hidden></p>
     </div>
   </section>
 </main>

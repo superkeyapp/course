@@ -19,15 +19,18 @@ python -m http.server 5180
 
 然后打开 http://localhost:5180/。
 
-## 还没定的内容
+## 发布前要填的内容
 
-页面上黄底的 `<span class="todo">` 都是占位，定了以后替换：
+全部在 `main.js` 最上面的 `CONFIG` 里，填好就生效；空着时页面上给出“即将公布”之类的提示，不会出错：
 
-- 众筹：截止日期（暂写 2027 年 1 月 20 日）。不显示参与人数：静态网页没法自动更新
-- 购买链接：两个档位各对应课程网站上的一个课程，网址填到 `main.js` 顶部的 `PLAN_LINKS`（standard、full），填了以后点“参与众筹”直接跳过去
-- 客服微信：微信号填到 `main.js` 顶部的 `WECHAT.id`；二维码图片放到 `assets/wechat-qr.png`，再把 `main.js` 的 `WECHAT.qr` 和 `index.html` 里“联系客服”那张图的地址改过来
-- 介绍视频：B 站地址填到 `index.html` 里 `.js-video` 的 `data-url`
-- 完整版的其他权益、源码能否商用、B 站和抖音账号
+| 字段 | 填什么 |
+|---|---|
+| `planLinks.standard`、`planLinks.full` | 两个档位在课程网站上的课程页网址，点“参与众筹”直接跳过去 |
+| `wechat.id`、`wechat.qr` | 客服微信号；二维码图片放到 `assets/wechat-qr.png` 后把 `qr` 改成这个路径 |
+| `videoUrl` | 课程介绍视频的 B 站地址（首屏大封面） |
+| `bilibili`、`douyin` | 账号名和主页地址；都空着时底部不显示这一行 |
+
+页面里如果临时写了占位文字，用 `<span class="todo">…</span>`（黄底），发布前全部替换掉。
 
 ## 约定
 

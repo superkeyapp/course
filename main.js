@@ -1,25 +1,24 @@
 // 落地页的交互：手机上点“下载”给出电脑网址、联系客服、购买链接和介绍视频（还没填时）的提示
-(() => {
-  // ======== 发布前要填的内容：都在这里，填好就生效；空着的地方页面上会给出“即将公布”之类的提示 ========
-  const CONFIG = {
-    // 三个档位各对应课程网站上的一个课程：点“参与众筹”直接跳过去
-    planLinks: {
-      standard: '',   // 标准版 ¥298 的课程页网址
-      advanced: '',   // 进阶版 ¥698 的课程页网址
-      full: '',       // 全套版 ¥798 的课程页网址
-    },
-    // 客服微信：微信号；二维码图片放到 public/ 目录（如 public/wechat-qr.png），这里写文件名。
-    // 以后换二维码时换一个新文件名（如 wechat-qr-2.png），否则用户浏览器可能还显示缓存里的旧图
-    wechat: { id: '', qr: 'wechat-qr.svg' },
-    // 课程介绍视频的 B 站地址（首屏那个大封面点了跳过去）
-    videoUrl: '',
-    // B 站、抖音：name 是显示的账号名，url 是主页地址；都空着时页面底部不显示这一行
-    bilibili: { name: '', url: '' },
-    douyin: { name: '', url: '' },
-  }
-  // ==================================================================================================
+// 网址、作品都在 data/site.js：这里把 data-link 的链接填好、生成作品墙（works.js）
+import { course, links } from './data/site.js'
+import { renderWorks } from './works.js'
 
-  const OFFICIAL_SITE = 'https://superkeyapp.github.io'
+// 页面里写 data-link="名字" 的链接：地址从 data/site.js 的 links 里取（加 data-link-text 的连文字也换成网址）
+document.querySelectorAll('a[data-link]').forEach((a) => {
+  const url = links[a.dataset.link]
+  if (!url) return
+  a.href = url
+  if (a.hasAttribute('data-link-text')) a.textContent = url.replace(/^https?:\/\//, '')
+})
+renderWorks(document.getElementById('works'))
+
+// 下面是原来的交互（开头的分号：避免和上一行连成一个调用）
+
+;(() => {
+  // 发布前要填的内容（购买链接、客服微信、视频、账号）都在 data/site.js 的 course 里
+  const CONFIG = course
+
+  const OFFICIAL_SITE = links.site
   const WECHAT = CONFIG.wechat
   const PLAN_LINKS = CONFIG.planLinks
   const isPhone = /Android|iPhone|iPad|iPod|HarmonyOS|Mobile/i.test(navigator.userAgent)
@@ -69,18 +68,20 @@
   })
 
   // ---- 联系客服微信：弹出二维码和微信号；页面底部另有一块“联系客服” ----
+  // 有微信号才显示“微信号：…”和“复制微信号”；没有时只提示扫码 / 长按名片添加
   if (WECHAT.id) {
     document.querySelectorAll('.js-wechat-id').forEach((el) => {
       el.textContent = WECHAT.id
     })
+    document.querySelectorAll('.js-wechat-has-id').forEach((el) => { el.hidden = false })
   }
   document.querySelectorAll('img.js-wechat-qr').forEach((img) => { img.src = WECHAT.qr })
-  const wechatTip = '在微信里长按二维码即可添加；也可以复制微信号，到微信里搜索添加。'
+  const wechatTip = '在微信里长按名片即可识别添加；在电脑上看的，用手机微信扫一扫。' + (WECHAT.id ? '也可以复制微信号，到微信里搜索添加。' : '')
   document.querySelectorAll('.js-contact').forEach((a) => {
     a.addEventListener('click', (e) => {
       e.preventDefault()
-      showDialog('联系客服微信', (WECHAT.id ? `微信号：${WECHAT.id}。` : '微信号即将公布。') + wechatTip, WECHAT.id,
-        { image: WECHAT.qr, imageAlt: '客服微信二维码', copyLabel: '复制微信号' })
+      showDialog('联系客服微信', (WECHAT.id ? `微信号：${WECHAT.id}。` : '') + wechatTip, WECHAT.id,
+        { image: WECHAT.qr, imageAlt: '爱学啊客服的微信名片（二维码）', copyLabel: '复制微信号' })
     })
   })
   document.querySelectorAll('.js-copy-wechat').forEach((b) => {
@@ -115,7 +116,7 @@
     })
   })
 
-  // ---- 介绍视频：CONFIG.videoUrl 填上 B 站地址后直接跳过去；还没有时提示即将上线 ----
+  // ---- 介绍视频：CONFIG.videoUrl 填上视频地址后直接跳过去；还没有时提示即将上线 ----
   document.querySelectorAll('.js-video').forEach((a) => {
     a.addEventListener('click', (e) => {
       const url = CONFIG.videoUrl
@@ -126,7 +127,7 @@
         return
       }
       e.preventDefault()
-      showDialog('介绍视频即将上线', '视频会发布在 B 站，上线后点这里就能观看。')
+      showDialog('介绍视频即将上线', '视频上线后，点这里就能观看。')
     })
   })
 

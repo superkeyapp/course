@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>作品详情 · 超级快捷键课程</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="product-page">
+<!--
+  作品详情页：一个模板，所有作品共用，地址是 product.html?id=作品ID。
+  内容（介绍、技术、优势、截图、下载链接）都在 data/site.js 的 products 里，这个文件不用改。
+-->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html#works"><img src="assets/logo.svg" alt="" width="28" height="28"><span>← 返回课程介绍</span></a>
+  </div>
+</header>
+
+<main class="wrap product" id="product">
+  <p class="product-missing" hidden>没有找到这个作品。<a class="link" href="index.html#works">返回作品列表</a></p>
+</main>
+
+<div class="lightbox" id="lightbox" hidden><img alt=""></div>
+
+<script type="module" src="product.js"></script>
+</body>
+</html>

@@ -22,7 +22,8 @@
 ```
 index.html        全部文字和页面结构，从上往下就是页面的顺序
 styles.css        样式：先写手机，屏幕宽度 720 以上再放宽成电脑布局；配色和软件官网一致，强调色是柔和的红
-main.js           交互，最上面的 CONFIG 是发布前要填的内容（见第四节）
+main.js           交互（首页）；works.js 作品墙，product.html + product.js 作品详情页（所有作品共用一个模板）
+data/site.js      发布前要填的内容和所有链接：购买链接、客服微信、视频、账号（course）、下载地址（hosts）、作品（products）
 assets/           图标、截图：会被打包，文件名加上编号
 public/           原样复制、不改名的文件（客服二维码）
 vite.config.js    Vite 配置
@@ -36,20 +37,20 @@ package.json      依赖和命令
 **改颜色、排版**：改 `styles.css`。最上面的 `:root` 里是全部颜色：`--brand` 是主色蓝，`--accent` 是强调色红。
 强调色只用在最关键的地方（源码已完成、参与众筹按钮、价格、退款规则），不要到处用，用多了反而不突出。
 
-**填购买网址、客服微信、B 站、抖音**：都在 `main.js` 最上面的 `CONFIG` 里，填好就生效；
+**填购买网址、客服微信、视频、B 站、抖音、下载地址**：都在 `data/site.js` 里（`course`、`hosts`、各作品的 `downloads` 和 `video`），填好就生效；
 空着时页面上给出“即将公布”之类的提示，不会出错。
 
 | 字段 | 填什么 |
 |---|---|
 | `planLinks.standard`、`planLinks.advanced`、`planLinks.full` | 标准版、进阶版、全套版在课程网站上的课程页网址，点“参与众筹”直接跳过去 |
 | `wechat.id` | 客服微信号 |
-| `wechat.qr` | 客服二维码：图片放到 `public/` 目录，这里写文件名（如 `wechat-qr.png`） |
+| `wechat.qr` | 客服微信名片（微信“我的二维码”，带头像、昵称）：图片放到 `public/` 目录，这里写文件名（如 `wechat-card-1.jpg`）；四角有黑边的先填成白色 |
 | `videoUrl` | 课程介绍视频的 B 站地址（首屏的大封面） |
 | `bilibili`、`douyin` | 账号名和主页地址；都空着时页面底部不显示这一行 |
 
 **换图片**：
 - `assets/` 里的图片（截图、图标）：直接替换同名文件即可，打包时文件名会自动加上新的编号。
-- 客服二维码（`public/` 里的）：**换一个新文件名**（如 `wechat-qr-2.png`），再改 `CONFIG` 里的 `wechat.qr`。
+- 客服名片（`public/` 里的）：**换一个新文件名**（如 `wechat-card-2.jpg`），再改 `data/site.js` 里 `course.wechat.qr`。
   `public/` 里的文件打包时不改名，用同一个文件名，用户的浏览器可能还在显示缓存里的旧图。
 
 **临时占位**：还没定的文字可以写成 `<span class="todo">…</span>`，页面上显示成黄底，发布前全部替换掉。

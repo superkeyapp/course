@@ -59,7 +59,7 @@ export const products = [
   {
     id: 'winui',
     tier: 'standard',
-    name: '超级快捷键 正式版',
+    name: '超级快捷键（WinUI）',
     tech: ['WinUI 3', '.NET 10', 'C++ 核心'],
     summary: '微软现在主推的原生界面技术，Windows 11 设置的风格，深色 / 浅色跟随系统。',
     intro: '正式发布给普通用户用的版本。界面用 WinUI 3（Windows App SDK）写，快捷键、手势等所有功能都在 C++ 核心里，'
@@ -93,7 +93,7 @@ export const products = [
     name: 'WPF 版',
     tech: ['WPF', '.NET 10', 'C++ 核心'],
     summary: '.NET 里最成熟的桌面界面技术，用它自带的 Windows 11 风格（Fluent）主题。',
-    intro: '和正式版连的是同一个核心、同一套界面描述，只是界面换成 WPF。适合对照着看：同样的需求，换一种界面技术怎么写。',
+    intro: '和超级快捷键（WinUI）连的是同一个核心、同一套界面描述，只是界面换成 WPF。适合对照着看：同样的需求，换一种界面技术怎么写。',
     pros: ['技术成熟，资料最多', '和 WinUI 版共用 .NET 客户端库'],
     dirs: ['superkey-wpf'],
     shots: ['wpf-overview.webp'],
@@ -145,7 +145,7 @@ export const products = [
     name: '超级快捷键 经典版',
     tech: ['C++20', 'Win32 API'],
     summary: '核心和系统控件界面编在一个 exe 里，不用装 .NET，安装包只有约 3 MB。',
-    intro: '另一种架构：去掉命名管道和 JSON 界面描述，界面直接调用核心，整个软件就是一个文件。功能和正式版完全一样，界面是传统 Windows 样式。',
+    intro: '另一种架构：去掉命名管道和 JSON 界面描述，界面直接调用核心，整个软件就是一个文件。功能和超级快捷键（WinUI）完全一样，界面是传统 Windows 样式。',
     pros: ['单个文件，体积最小', '不用装任何运行库'],
     dirs: ['superkey-win32'],
     shots: ['classic-overview.webp'],
@@ -177,7 +177,7 @@ export const products = [
     experimental: true,
     tech: ['aardio', 'C++ 核心'],
     summary: '试验项目：开发到一半，界面和操作都不完整，按现状提供。用 aardio 原生窗口做的界面，连接同一个 C++ 核心。',
-    intro: '用 aardio（一个小众的 Windows 开发语言）写的界面，和正式版连同一个 C++ 核心、用同一套界面描述。'
+    intro: '用 aardio（一个小众的 Windows 开发语言）写的界面，和超级快捷键（WinUI）连同一个 C++ 核心、用同一套界面描述。'
       + '适合想看“小众语言怎么接入同一个核心”的同学，不适合当成能用的软件。',
     pros: ['看小众语言怎么接入同一个核心'],
     status: {

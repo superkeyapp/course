@@ -319,30 +319,22 @@
     <div class="wrap">
       <h2>项目目录</h2>
       <p class="section-sub">整个项目长什么样。标签表示在哪个档位里，点目录名看它做出来的作品。</p>
-      <p class="tree-legend"><span class="key-mark">红色</span>的 SuperKey 是软件源码，课程的核心都在这里。</p>
+      <p class="tree-legend">每个目录是一个单独的 Git 仓库，并排放在同一个文件夹里，买了哪个档位就能拉取哪些仓库。<span class="key-mark">红色</span>的核心是所有版本共用的。</p>
       <div class="tree">
         <details open>
-          <summary><code>superkey/</code><span>工作目录</span></summary>
-          <details open>
-            <summary class="key"><code>SuperKey/</code><span>软件源码</span></summary>
-            <ul>
-              <li><code><a class="tree-link" href="product.html?id=core">superkey/</a></code><span>C++ 核心：所有功能都在这里，用 JSON 描述界面给各界面用，自带一套 Win32 界面</span><em class="std">标准版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=classic">superkey-win32/</a></code><span>经典版：核心 + 系统控件界面编在一个 exe 里，单个文件就能运行</span><em class="full">全套版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=winui">superkey-winui/</a></code><span>超级快捷键（官网发布的版本）：WinUI 3 界面，Windows 11 设置风格</span><em class="std">标准版</em></li>
-              <li><code>superkey-client/</code><span>.NET 公共客户端库：WinUI 等 .NET 界面连接核心用</span><em class="std">标准版</em></li>
-              <li><code>design/</code><span>设计规范：图标、颜色、尺寸，人或 AI 都能照着还原</span><em class="std">标准版</em></li>
-              <li><code>docs/</code><span>需求、计划、打包与发布文档</span><em class="std">标准版</em></li>
-              <li><code>tools/</code><span>各项目共用的打包脚本、安装包模板</span><em class="std">标准版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=wpf">superkey-wpf/</a></code><span>WPF 界面（.NET）</span><em class="adv">进阶版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=electron">superkey-electron/</a></code><span>Electron 界面（TypeScript、React）</span><em class="adv">进阶版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=tauri">superkey-tauri/</a></code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em class="adv">进阶版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=aardio">superkey-aardio/</a></code><span>aardio 界面（试验，开发到一半，按现状提供）</span><em class="full">全套版</em></li>
-              <li><code><a class="tree-link" href="product.html?id=d2d">superkey-d2d/</a></code><span>Direct2D 自绘界面（试验，功能完整，未经实际使用，按现状提供）</span><em class="full">全套版</em></li>
-            </ul>
-          </details>
+          <summary><code>superkey/</code><span>工作目录（自己建的文件夹）</span></summary>
           <ul>
-            <li><code><a class="tree-link" href="product.html?id=website">superkeyapp.github.io/</a></code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
+            <li class="key"><code><a class="tree-link" href="product.html?id=core">superkey-core/</a></code><span>C++ 核心：所有功能都在这里，用 JSON 描述界面给各界面用，自带一套 Win32 界面；还有设计规范和文档</span><em class="std">标准版</em></li>
+            <li><code>superkey-client-dotnet/</code><span>.NET 客户端库：WinUI、WPF 这些 .NET 界面连接核心用</span><em class="std">标准版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=winui">superkey-winui/</a></code><span>超级快捷键（官网发布的版本）：WinUI 3 界面，Windows 11 设置风格</span><em class="std">标准版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=wpf">superkey-wpf/</a></code><span>WPF 界面（.NET）</span><em class="adv">进阶版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=electron">superkey-electron/</a></code><span>Electron 界面（TypeScript、React）</span><em class="adv">进阶版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=tauri">superkey-tauri/</a></code><span>Tauri 界面：同一套 React 界面，外壳是 Rust</span><em class="adv">进阶版</em></li>
             <li><code><a class="tree-link" href="product.html?id=keycast">keycast/</a></code><span>KeyCast 按键显示：录演示视频时把按键显示在屏幕上</span><em class="adv">进阶版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=classic">superkey-classic/</a></code><span>经典版：核心 + 系统控件界面编在一个 exe 里，单个文件就能运行</span><em class="full">全套版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=d2d">superkey-direct2d/</a></code><span>Direct2D 自绘界面（试验，功能完整，未经实际使用，按现状提供）</span><em class="full">全套版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=aardio">superkey-aardio/</a></code><span>aardio 界面（试验，开发到一半，按现状提供）</span><em class="full">全套版</em></li>
+            <li><code><a class="tree-link" href="product.html?id=website">superkeyapp.github.io/</a></code><span>软件官网（公开，任何人都能看）</span><em class="free">公开</em></li>
           </ul>
         </details>
       </div>

@@ -2,12 +2,16 @@
 // 首屏和常见问题里的下载、官网链接、购买链接、客服微信、视频，都从这里读。
 //
 // 换下载地址（比如从 GitHub 换成国内网盘、自己部署的网站）：只改 hosts 里对应的一行，各条链接都在它后面拼路径。
+// 发新版本时改 hosts 里 GitHub 地址末尾的版本号，和下面各个文件名里的版本号。
 // 加一个作品、改介绍或截图：改 products 里的一条，不用新建页面。
 
 // ---- 网址的前半部分：只写一次 ----
 export const hosts = {
   site: 'https://superkeyapp.github.io',   // 软件官网
-  github: '',                              // 下载仓库的发布页，如 https://github.com/superkeyapp/downloads/releases/download/v1.0.0
+  // 超级快捷键（WinUI）和经典版：官网也从这里下载
+  release: 'https://github.com/superkeyapp/superkey-release/releases/download/v1.0.0',
+  // 学习用的其他版本和 KeyCast
+  demo: 'https://github.com/superkeyapp/superkey-demo/releases/download/v1.0.0',
   pan: '',                                 // 网盘的分享地址
 }
 
@@ -51,7 +55,7 @@ const at = (host, path) => (host ? `${host}/${path}` : '')
 //   tier       在哪个档位（public = 公开，不用买）
 //   dirs       对应源码里的哪些目录
 //   shots      截图：放在 public/screens/ 下，写文件名；第一张是作品墙卡片上的缩略图
-//   downloads  下载链接：第一个是主链接（作品墙上的“下载体验”），详情页列出全部；url 空着显示“即将提供”
+//   downloads  下载链接：第一个有地址的是主链接（作品墙上的“下载体验”），详情页列出全部；url 空着显示“即将提供”
 //   visit      网站类作品：访问地址（代替下载）
 //   video      效果演示视频的地址（如 B 站）：作品墙和详情页出现“▶ 效果演示”，点了在新窗口打开；空着不显示
 //   experimental  试验项目：卡片上标“试验 · 不完善”，详情页最上面写明现状（status：能用的、不完善的）
@@ -65,12 +69,12 @@ export const products = [
     intro: '正式发布给普通用户用的版本。界面用 WinUI 3（Windows App SDK）写，快捷键、手势等所有功能都在 C++ 核心里，'
       + '界面通过命名管道连接核心、按核心给的“界面描述”显示。关掉窗口后只剩轻量的后台核心。',
     pros: ['界面最接近 Windows 11 自带的设置', '深色 / 浅色、云母背景、动画都是系统原生的', '界面和核心分开：界面关掉不影响快捷键'],
-    dirs: ['superkey-winui', 'superkey-client', 'superkey'],
+    dirs: ['superkey-winui', 'superkey-client-dotnet', 'superkey-core'],
     shots: ['winui-overview.webp', 'winui-hotkey.webp', 'winui-hotkey-edit.webp', 'winui-gesture.webp'],
     video: '',
     downloads: [
       { label: '网盘下载', url: at(hosts.pan, ''), note: '' },
-      { label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-1.0.0-x64-Setup.exe'), note: '' },
+      { label: 'GitHub 下载', url: at(hosts.release, 'SuperKey-1.0.0-x64-Setup.exe'), note: '' },
     ],
   },
   {
@@ -82,10 +86,10 @@ export const products = [
     intro: '整个软件的核心。键盘鼠标钩子、手势和热键引擎、配置、托盘都在这里；每个页面有哪些设置由核心用 JSON 描述，'
       + '各种界面只负责把描述画出来，所以所有界面看到的内容始终一致。核心自己也带一套 Win32 系统控件的界面。',
     pros: ['所有界面共用一个核心，功能只写一次', '常驻后台的只是核心，占用很少', '界面描述协议有完整文档，可以自己再写一种界面'],
-    dirs: ['superkey'],
+    dirs: ['superkey-core'],
     shots: ['core-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-Win32-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Win32-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'wpf',
@@ -98,7 +102,7 @@ export const products = [
     dirs: ['superkey-wpf'],
     shots: ['wpf-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-WPF-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-WPF-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'electron',
@@ -111,7 +115,7 @@ export const products = [
     dirs: ['superkey-electron'],
     shots: ['electron-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-Electron-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Electron-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'tauri',
@@ -124,7 +128,7 @@ export const products = [
     dirs: ['superkey-tauri'],
     shots: ['tauri-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-Tauri-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Tauri-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'keycast',
@@ -137,7 +141,7 @@ export const products = [
     dirs: ['keycast'],
     shots: ['keycast-settings.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'KeyCast-1.0.0-x64.zip'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'KeyCast-1.0.0-x64.zip'), note: '' }],
   },
   {
     id: 'classic',
@@ -147,10 +151,10 @@ export const products = [
     summary: '核心和系统控件界面编在一个 exe 里，不用装 .NET，安装包只有约 3 MB。',
     intro: '另一种架构：去掉命名管道和 JSON 界面描述，界面直接调用核心，整个软件就是一个文件。功能和超级快捷键（WinUI）完全一样，界面是传统 Windows 样式。',
     pros: ['单个文件，体积最小', '不用装任何运行库'],
-    dirs: ['superkey-win32'],
+    dirs: ['superkey-classic'],
     shots: ['classic-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-Classic-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.release, 'SuperKey-Classic-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'd2d',
@@ -165,10 +169,10 @@ export const products = [
       works: ['核心的全部功能（快捷键、手势等）和自绘的设置窗口都做完了'],
       missing: ['没有经过实际使用，可能有显示上的小问题（比如搜索框上有一条断开的痕迹）', '按现状提供；目前没有更新计划，如果课程反响好，会考虑继续完善'],
     },
-    dirs: ['superkey-d2d'],
+    dirs: ['superkey-direct2d'],
     shots: ['d2d-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.github, 'SuperKey-Direct2D-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Direct2D-1.0.0-x64-Setup.exe'), note: '' }],
   },
   {
     id: 'aardio',

@@ -8,7 +8,7 @@ const tierIndex = (id) => tiers.findIndex((t) => t.id === id)
 function card(p) {
   const detail = `product.html?id=${p.id}`
   const shot = p.shots[0]
-  const main = p.downloads[0]
+  const main = p.downloads.find((d) => d.url)   // 第一个有地址的（网盘还没填时用 GitHub）
   let actions
   if (p.visit) {
     actions = `<a class="btn btn-brand btn-sm" href="${esc(p.visit)}" target="_blank" rel="noopener">访问网站</a>`

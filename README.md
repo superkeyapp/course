@@ -23,7 +23,7 @@
 index.html        全部文字和页面结构，从上往下就是页面的顺序
 styles.css        样式：先写手机，屏幕宽度 720 以上再放宽成电脑布局；配色和软件官网一致，强调色是柔和的红
 main.js           交互（首页）；works.js 作品墙，product.html + product.js 作品详情页（所有作品共用一个模板）
-data/site.js      发布前要填的内容和所有链接：购买链接、客服微信、视频、账号（course）、下载地址（hosts）、作品（products）
+data/site.js      发布前要填的内容和所有链接：购买链接、客服微信、视频、账号（course）、站外链接（links，都是短链接）、网盘（hosts）、作品（products）
 assets/           图标、截图：会被打包，文件名加上编号
 public/           原样复制、不改名的文件（客服二维码）
 vite.config.js    Vite 配置
@@ -37,7 +37,8 @@ package.json      依赖和命令
 **改颜色、排版**：改 `styles.css`。最上面的 `:root` 里是全部颜色：`--brand` 是主色蓝，`--accent` 是强调色红。
 强调色只用在最关键的地方（源码已完成、参与众筹按钮、价格、退款规则），不要到处用，用多了反而不突出。
 
-**填购买网址、客服微信、视频、B 站、抖音、下载地址**：都在 `data/site.js` 里（`course`、`hosts`、各作品的 `downloads` 和 `video`），填好就生效；
+**填购买网址、客服微信、视频、B 站、抖音、下载地址**：都在 `data/site.js` 里（`course`、`links`、`hosts`、各作品的 `downloads` 和 `video`），填好就生效；
+站外链接一律先在 https://a.ixuea.com/uris/new 建短链接（Source 填目标地址，Media 填“众筹页”，Unit、Key 写位置和按钮名），再把短链接填进去，这样每个位置的点击次数都能统计；
 空着时页面上给出“即将公布”之类的提示，不会出错。
 
 | 字段 | 填什么 |

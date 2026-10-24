@@ -1,25 +1,28 @@
 // 页面上所有对外链接和“作品”的数据，都只写在这里：首页的作品墙、每个作品的详情页（product.html）、
 // 首屏和常见问题里的下载、官网链接、购买链接、客服微信、视频，都从这里读。
 //
-// 换下载地址（比如从 GitHub 换成国内网盘、自己部署的网站）：只改 hosts 里对应的一行，各条链接都在它后面拼路径。
-// 发新版本时改 hosts 里 GitHub 地址末尾的版本号，和下面各个文件名里的版本号。
+// 站外链接（官网、下载、视频）都是短链接（见下面的 short），注释里写着跳到哪里。换下载地址、发新版本时，
+// 新建短链接（目标填新地址），把代码换掉；短链接也可以在短链接服务里直接改指向，页面不用动。
 // 加一个作品、改介绍或截图：改 products 里的一条，不用新建页面。
 
-// ---- 网址的前半部分：只写一次 ----
+// ---- 网盘：填了分享地址，各作品的“网盘下载”才出现（也建议换成短链接） ----
 export const hosts = {
-  site: 'https://superkeyapp.github.io',   // 软件官网
-  // 超级快捷键（WinUI）和经典版：官网也从这里下载
-  release: 'https://github.com/superkeyapp/superkey-release/releases/download/v1.0.0',
-  // 学习用的其他版本和 KeyCast
-  demo: 'https://github.com/superkeyapp/superkey-demo/releases/download/v1.0.0',
-  pan: '',                                 // 网盘的分享地址
+  pan: '',   // 网盘的分享地址
 }
 
-// ---- 页面里用到的固定链接（index.html 里写 data-link="名字"，main.js 填进去） ----
+// ---- 站外链接都用短链接（a.ixuea.com），统计每个位置的点击次数 ----
+// 新建：https://a.ixuea.com/uris/new，Source 填目标地址，Media 填“众筹页”，Unit 填位置，Key 填按钮名；
+// 返回的代码拼在 https://a.ixuea.com/ 后面。每个位置单独一个，即使目标地址一样，才能分开统计
+const short = (code) => `https://a.ixuea.com/${code}`
+
+// ---- 页面里用到的固定链接（index.html 里写 data-link="名字"，main.js 填进去）；注释是短链接跳到哪里 ----
 export const links = {
-  site: hosts.site,
-  siteDownload: `${hosts.site}/download`,   // 官网的下载页
-  siteFeatures: `${hosts.site}/#hotkey`,    // 官网的功能和演示
+  site: short('cd'),                  // 页脚“软件官网”→ 官网首页（显示的文字仍是官网地址）
+  siteDownloadHero: short('cw'),      // 首屏“免费下载体验软件”→ 官网下载页
+  siteDownloadFaq: short('cy'),       // 常见问题“去官网下载”→ 官网下载页
+  siteDownloadBottom: short('cM'),    // 页面底部“免费下载体验软件”→ 官网下载页
+  siteFeaturesPreview: short('cb'),   // 软件介绍里的官网预览图 → 官网首页的功能演示（/#hotkey）
+  siteFeaturesButton: short('cC'),    // “去官网看全部功能和演示”→ 官网首页的功能演示（/#hotkey）
 }
 
 // ---- 发布前要填的内容：填好就生效；空着的地方页面上会给出“即将公布”之类的提示 ----
@@ -71,10 +74,10 @@ export const products = [
     pros: ['界面最接近 Windows 11 自带的设置', '深色 / 浅色、云母背景、动画都是系统原生的', '界面和核心分开：界面关掉不影响快捷键'],
     dirs: ['superkey-winui', 'superkey-client-dotnet', 'superkey-core'],
     shots: ['winui-overview.webp', 'winui-hotkey.webp', 'winui-hotkey-edit.webp', 'winui-gesture.webp'],
-    video: 'https://www.bilibili.com/video/BV1g6kkB5E1G/',
+    video: short('RB'),   // B 站 BV1g6kkB5E1G
     downloads: [
       { label: '网盘下载', url: at(hosts.pan, ''), note: '' },
-      { label: 'GitHub 下载', url: at(hosts.release, 'SuperKey-1.0.0-x64-Setup.exe'), note: '' },
+      { label: 'GitHub 下载', url: short('c3'), note: '' },   // superkey-release 1.0.0 的 SuperKey-1.0.0-x64-Setup.exe
     ],
   },
   {
@@ -89,7 +92,7 @@ export const products = [
     dirs: ['superkey-core'],
     shots: ['core-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Win32-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('c6'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Win32-1.0.0-x64-Setup.exe
   },
   {
     id: 'wpf',
@@ -102,7 +105,7 @@ export const products = [
     dirs: ['superkey-wpf'],
     shots: ['wpf-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-WPF-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('cX'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-WPF-1.0.0-x64-Setup.exe
   },
   {
     id: 'electron',
@@ -115,7 +118,7 @@ export const products = [
     dirs: ['superkey-electron'],
     shots: ['electron-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Electron-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('cu'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Electron-1.0.0-x64-Setup.exe
   },
   {
     id: 'tauri',
@@ -128,7 +131,7 @@ export const products = [
     dirs: ['superkey-tauri'],
     shots: ['tauri-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Tauri-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('ch'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Tauri-1.0.0-x64-Setup.exe
   },
   {
     id: 'keycast',
@@ -141,7 +144,7 @@ export const products = [
     dirs: ['keycast'],
     shots: ['keycast-settings.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'KeyCast-1.0.0-x64.zip'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('RF'), note: '' }],   // superkey-demo 1.0.0 的 KeyCast-1.0.0-x64.zip
   },
   {
     id: 'classic',
@@ -154,7 +157,7 @@ export const products = [
     dirs: ['superkey-classic'],
     shots: ['classic-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.release, 'SuperKey-Classic-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('c8'), note: '' }],   // superkey-release 1.0.0 的 SuperKey-Classic-1.0.0-x64-Setup.exe
   },
   {
     id: 'd2d',
@@ -172,7 +175,7 @@ export const products = [
     dirs: ['superkey-direct2d'],
     shots: ['d2d-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: at(hosts.demo, 'SuperKey-Direct2D-1.0.0-x64-Setup.exe'), note: '' }],
+    downloads: [{ label: 'GitHub 下载', url: short('Rz'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Direct2D-1.0.0-x64-Setup.exe
   },
   {
     id: 'aardio',
@@ -211,7 +214,7 @@ export const products = [
     shots: ['website-home.webp'],
     video: '',
     downloads: [],
-    visit: hosts.site,
+    visit: short('cO'),   // 作品墙“访问网站”→ 官网首页
   },
 ]
 

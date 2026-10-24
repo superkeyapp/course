@@ -3,12 +3,13 @@
 import { course, links } from './data/site.js'
 import { renderWorks } from './works.js'
 
-// 页面里写 data-link="名字" 的链接：地址从 data/site.js 的 links 里取（加 data-link-text 的连文字也换成网址）
+// 页面里写 data-link="名字" 的链接：地址从 data/site.js 的 links 里取。
+// 加了 data-link-text 的，链接文字也换掉：写了值就显示这个值（链接是短链接时显示真正的网址），空着就显示链接本身
 document.querySelectorAll('a[data-link]').forEach((a) => {
   const url = links[a.dataset.link]
   if (!url) return
   a.href = url
-  if (a.hasAttribute('data-link-text')) a.textContent = url.replace(/^https?:\/\//, '')
+  if (a.hasAttribute('data-link-text')) a.textContent = a.dataset.linkText || url.replace(/^https?:\/\//, '')
 })
 renderWorks(document.getElementById('works'))
 

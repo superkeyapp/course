@@ -1,5 +1,5 @@
 // 作品墙：按档位显示作品卡片（数据在 data/site.js）。选一个档位，显示它包含的全部作品（高档位包含低档位的）；
-// 公开的作品（官网）一直显示。每张卡片：缩略图、名称、档位、一句话、技术、查看详情 / 下载体验（主链接）/ 更多下载方式
+// 公开的作品（官网）一直显示。每张卡片：缩略图、名称、档位、一句话、技术、查看详情 / 下载体验（到详情页的下载一节）/ 效果演示
 import { products, tiers, tierName } from './data/site.js'
 
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c])
@@ -8,18 +8,18 @@ const tierIndex = (id) => tiers.findIndex((t) => t.id === id)
 function card(p) {
   const detail = `product.html?id=${p.id}`
   const shot = p.shots[0]
-  const main = p.downloads.find((d) => d.url)   // 第一个有地址的（网盘还没填时用 GitHub）
+  const hasDownload = p.downloads.some((d) => d.url)
   let actions
   if (p.visit) {
     actions = `<a class="btn btn-brand btn-sm" href="${esc(p.visit)}" target="_blank" rel="noopener">访问网站</a>`
-  } else if (main?.url) {
-    actions = `<a class="btn btn-brand btn-sm" href="${esc(main.url)}" target="_blank" rel="noopener">下载体验</a>`
-      + (p.downloads.length > 1 ? `<a class="work-more" href="${detail}#download">更多下载方式 →</a>` : '')
+  } else if (hasDownload) {
+    // 下载体验：到详情页的下载一节，那里列出全部下载方式（GitHub、网盘……）
+    actions = `<a class="btn btn-brand btn-sm" href="${detail}#download">下载体验</a>`
   } else {
     actions = `<span class="work-soon">${p.downloads.length ? '下载即将提供' : '暂不提供下载'}</span>`
   }
-  // 效果演示：有视频时一个按钮，点了在新窗口打开（如 B 站）
-  const video = p.video ? `<a class="work-video" href="${esc(p.video)}" target="_blank" rel="noopener">▶ 效果演示</a>` : ''
+  // 效果演示：有视频时一个按钮，紧跟在下载体验后面，点了在新窗口打开（如 B 站）
+  const video = p.video ? `<a class="btn btn-video btn-sm" href="${esc(p.video)}" target="_blank" rel="noopener">▶ 效果演示</a>` : ''
   return `
     <article class="work" id="work-${p.id}">
       <a class="work-shot" href="${p.video ? esc(p.video) : detail}"${p.video ? ' target="_blank" rel="noopener"' : ''}>${shot ? `<img src="screens/${esc(shot)}" alt="${esc(p.name)}" loading="lazy">` : '<span>截图即将补上</span>'}${p.video ? '<i class="work-play" aria-hidden="true">▶</i>' : ''}</a>
@@ -27,7 +27,7 @@ function card(p) {
         <div class="work-head"><h3>${esc(p.name)}</h3><span class="work-tags">${p.experimental ? '<em class="exp">试验 · 不完善</em>' : ''}<em class="tier-${p.tier}">${esc(tierName(p.tier))}</em></span></div>
         <p>${esc(p.summary)}</p>
         <ul class="work-tech">${p.tech.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
-        <div class="work-actions"><a class="btn btn-outline btn-sm" href="${detail}">查看详情</a>${actions}${video}</div>
+        <div class="work-actions"><a class="btn btn-neutral btn-sm" href="${detail}">查看详情</a>${actions}${video}</div>
       </div>
     </article>`
 }

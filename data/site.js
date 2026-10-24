@@ -55,7 +55,7 @@ const at = (host, path) => (host ? `${host}/${path}` : '')
 //   tier       在哪个档位（public = 公开，不用买）
 //   dirs       对应源码里的哪些目录
 //   shots      截图：放在 public/screens/ 下，写文件名；第一张是作品墙卡片上的缩略图
-//   downloads  下载链接：第一个有地址的是主链接（作品墙上的“下载体验”），详情页列出全部；url 空着显示“即将提供”
+//   downloads  下载链接：详情页的“下载”一节列出全部（作品墙上的“下载体验”跳到那里）；都没有地址时显示“即将提供”
 //   visit      网站类作品：访问地址（代替下载）
 //   video      效果演示视频的地址（如 B 站）：作品墙和详情页出现“▶ 效果演示”，点了在新窗口打开；空着不显示
 //   experimental  试验项目：卡片上标“试验 · 不完善”，详情页最上面写明现状（status：能用的、不完善的）
@@ -71,7 +71,7 @@ export const products = [
     pros: ['界面最接近 Windows 11 自带的设置', '深色 / 浅色、云母背景、动画都是系统原生的', '界面和核心分开：界面关掉不影响快捷键'],
     dirs: ['superkey-winui', 'superkey-client-dotnet', 'superkey-core'],
     shots: ['winui-overview.webp', 'winui-hotkey.webp', 'winui-hotkey-edit.webp', 'winui-gesture.webp'],
-    video: '',
+    video: 'https://www.bilibili.com/video/BV1g6kkB5E1G/',
     downloads: [
       { label: '网盘下载', url: at(hosts.pan, ''), note: '' },
       { label: 'GitHub 下载', url: at(hosts.release, 'SuperKey-1.0.0-x64-Setup.exe'), note: '' },

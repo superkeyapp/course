@@ -58,7 +58,7 @@ if (!p) {
     ${status}
     ${p.video ? `<section>
       <h2>效果演示</h2>
-      <p><a class="btn btn-brand" href="${esc(p.video)}" target="_blank" rel="noopener">▶ 观看效果演示视频</a></p>
+      <p><a class="btn btn-video" href="${esc(p.video)}" target="_blank" rel="noopener">▶ 观看效果演示视频</a></p>
     </section>` : ''}
     <section>
       <h2>截图</h2>

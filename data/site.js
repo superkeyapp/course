@@ -160,6 +160,20 @@ export const products = [
     downloads: [{ label: 'GitHub 下载', url: short('c8'), note: '' }],   // superkey-release 1.0.0 的 SuperKey-Classic-1.0.0-x64-Setup.exe
   },
   {
+    id: 'qt',
+    tier: 'full',
+    name: 'Qt 版',
+    tech: ['Qt 6', 'QML', 'C++ 核心'],
+    summary: 'Qt Quick（QML）写的界面，Qt 官方的 Windows 11 风格（FluentWinUI3），连接同一个 C++ 核心。',
+    intro: '用 Qt 6 的 Qt Quick 写的界面，全部按 Qt 官方推荐的方式：QML 描述界面、C++ 连接核心（命名管道），和超级快捷键（WinUI）连同一个核心、用同一套界面描述。'
+      + '安装包约 22 MB、打开设置时内存约 57 MB，比 WinUI、WPF 版都省。',
+    pros: ['Qt 官方推荐的写法，界面和 C++ 分得清楚', '体积、内存比 WinUI、WPF 小', '看 C++ 程序员最熟悉的界面框架怎么接入同一个核心'],
+    dirs: ['superkey-qt'],
+    shots: ['qt-overview.webp'],
+    video: '',
+    downloads: [],   // 安装包还没上传到 superkey-demo；上传后新建短链接填在这里
+  },
+  {
     id: 'd2d',
     tier: 'full',
     name: 'Direct2D 自绘版',

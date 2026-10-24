@@ -171,7 +171,7 @@ export const products = [
     dirs: ['superkey-qt'],
     shots: ['qt-overview.webp'],
     video: '',
-    downloads: [],   // 安装包还没上传到 superkey-demo；上传后新建短链接填在这里
+    downloads: [{ label: 'GitHub 下载', url: short('Ri'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Qt-1.0.0-x64-Setup.exe
   },
   {
     id: 'd2d',

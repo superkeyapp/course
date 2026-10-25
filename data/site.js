@@ -5,11 +5,6 @@
 // 新建短链接（目标填新地址），把代码换掉；短链接也可以在短链接服务里直接改指向，页面不用动。
 // 加一个作品、改介绍或截图：改 products 里的一条，不用新建页面。
 
-// ---- 网盘：填了分享地址，各作品的“网盘下载”才出现（也建议换成短链接） ----
-export const hosts = {
-  pan: '',   // 网盘的分享地址
-}
-
 // ---- 站外链接都用短链接（a.ixuea.com），统计每个位置的点击次数 ----
 // 新建：https://a.ixuea.com/uris/new，Source 填目标地址，Media 填“众筹页”，Unit 填位置，Key 填按钮名；
 // 返回的代码拼在 https://a.ixuea.com/ 后面。每个位置单独一个，即使目标地址一样，才能分开统计
@@ -29,9 +24,9 @@ export const links = {
 export const course = {
   // 三个档位各对应课程网站上的一个课程：点“参与众筹”直接跳过去
   planLinks: {
-    standard: '',   // 标准版 ¥298 的课程页网址
-    advanced: '',   // 进阶版 ¥698 的课程页网址
-    full: '',       // 全套版 ¥798 的课程页网址
+    standard: short('Rp'),   // 标准版 ¥298：爱学啊 courses/198
+    advanced: short('RW'),   // 进阶版 ¥698：爱学啊 courses/200
+    full: short('RU'),       // 全套版 ¥798：爱学啊 courses/210
   },
   // 客服微信：微信号（没有就空着：页面上不显示微信号和“复制微信号”，只提示扫码 / 长按添加）；
   // 名片图（微信“我的二维码”，带头像、昵称）放到 public/ 目录，这里写文件名。
@@ -51,14 +46,20 @@ export const tiers = [
   { id: 'full', name: '全套版' },
 ]
 
-// 拼一条下载链接：host 没填时返回空（页面上显示“即将提供”）
-const at = (host, path) => (host ? `${host}/${path}` : '')
+// 详情页“下载体验”下面的“在 GitHub 查看全部版本和文件”：安装包分在两个公开仓库，各一个短链接，
+// 指向最新版本的 Release 页（releases/latest），发新版本不用改。作品的 release 写用哪一个
+export const releasePages = {
+  release: short('R4'),   // superkey-release 最新版本的 Release 页（超级快捷键、经典版）
+  demo: short('RI'),      // superkey-demo 最新版本的 Release 页（学习用的版本、KeyCast）；RI 是大写的 i
+}
 
 // ---- 作品：每个目录做出来的软件或网站 ----
 //   tier       在哪个档位（public = 公开，不用买）
 //   dirs       对应源码里的哪些目录
 //   shots      截图：放在 public/screens/ 下，写文件名；第一张是作品墙卡片上的缩略图
-//   downloads  下载链接：详情页的“下载”一节列出全部（作品墙上的“下载体验”跳到那里）；都没有地址时显示“即将提供”
+//   downloads  下载链接：详情页的“下载”一节列出全部（作品墙上的“下载体验”跳到那里），第一个标“推荐”；url 空着显示“即将提供”。
+//              网盘和官网下载页用同一个分享（超级快捷键和经典版在同一个分享里），按钮名写网盘名、note 写要不要登录 / 会员
+//   release    下载在哪个公开仓库（releasePages 里的 release / demo）：详情页显示“在 GitHub 查看全部版本和文件”
 //   visit      网站类作品：访问地址（代替下载）
 //   video      效果演示视频的地址（如 B 站）：作品墙和详情页出现“▶ 效果演示”，点了在新窗口打开；空着不显示
 //   experimental  试验项目：卡片上标“试验 · 不完善”，详情页最上面写明现状（status：能用的、不完善的）
@@ -75,8 +76,10 @@ export const products = [
     dirs: ['superkey-winui', 'superkey-client-dotnet', 'superkey-core'],
     shots: ['winui-overview.webp', 'winui-hotkey.webp', 'winui-hotkey-edit.webp', 'winui-gesture.webp'],
     video: short('RB'),   // B 站 BV1g6kkB5E1G
+    release: 'release',
     downloads: [
-      { label: '网盘下载', url: at(hosts.pan, ''), note: '' },
+      { label: '123 网盘', url: short('R5'), note: '免费账号登录就能下载，速度快' },
+      { label: '百度网盘', url: short('Rr'), note: '不开会员会限速' },
       { label: 'GitHub 下载', url: short('c3'), note: '' },   // superkey-release 1.0.0 的 SuperKey-1.0.0-x64-Setup.exe
     ],
   },
@@ -92,6 +95,7 @@ export const products = [
     dirs: ['superkey-core'],
     shots: ['core-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('c6'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Win32-1.0.0-x64-Setup.exe
   },
   {
@@ -105,6 +109,7 @@ export const products = [
     dirs: ['superkey-wpf'],
     shots: ['wpf-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('cX'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-WPF-1.0.0-x64-Setup.exe
   },
   {
@@ -118,6 +123,7 @@ export const products = [
     dirs: ['superkey-electron'],
     shots: ['electron-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('cu'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Electron-1.0.0-x64-Setup.exe
   },
   {
@@ -131,6 +137,7 @@ export const products = [
     dirs: ['superkey-tauri'],
     shots: ['tauri-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('ch'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Tauri-1.0.0-x64-Setup.exe
   },
   {
@@ -144,6 +151,7 @@ export const products = [
     dirs: ['keycast'],
     shots: ['keycast-settings.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('RF'), note: '' }],   // superkey-demo 1.0.0 的 KeyCast-1.0.0-x64.zip
   },
   {
@@ -157,7 +165,12 @@ export const products = [
     dirs: ['superkey-classic'],
     shots: ['classic-overview.webp'],
     video: '',
-    downloads: [{ label: 'GitHub 下载', url: short('c8'), note: '' }],   // superkey-release 1.0.0 的 SuperKey-Classic-1.0.0-x64-Setup.exe
+    release: 'release',
+    downloads: [
+      { label: '123 网盘', url: short('Rs'), note: '在分享里的“经典版”文件夹' },   // Rs 是小写 s
+      { label: '百度网盘', url: short('RG'), note: '在分享里的“经典版”文件夹' },
+      { label: 'GitHub 下载', url: short('c8'), note: '' },   // superkey-release 1.0.0 的 SuperKey-Classic-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'qt',
@@ -171,6 +184,7 @@ export const products = [
     dirs: ['superkey-qt'],
     shots: ['qt-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('Ri'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Qt-1.0.0-x64-Setup.exe
   },
   {
@@ -189,6 +203,7 @@ export const products = [
     dirs: ['superkey-direct2d'],
     shots: ['d2d-overview.webp'],
     video: '',
+    release: 'demo',
     downloads: [{ label: 'GitHub 下载', url: short('Rz'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Direct2D-1.0.0-x64-Setup.exe
   },
   {

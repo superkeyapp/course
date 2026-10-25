@@ -1,5 +1,5 @@
 // 作品详情页：按地址里的 id 从 data/site.js 取一个作品，显示是什么、在哪个档位、技术、优势、对应目录、截图、全部下载链接
-import { productById, tierName, tiersIncluding } from './data/site.js'
+import { productById, releasePages, tierName, tiersIncluding } from './data/site.js'
 
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c])
 const root = document.getElementById('product')
@@ -21,6 +21,11 @@ if (!p) {
             ${d.url ? `<a class="btn btn-brand btn-sm" href="${esc(d.url)}" target="_blank" rel="noopener">下载</a>` : '<span class="work-soon">即将提供</span>'}
           </li>`).join('')}</ul>`
       : '<p class="work-soon">这个作品暂不提供下载。</p>'
+  // 下载按钮直接下载安装包；想看免安装版、其他文件或者以后的版本，去 GitHub 的 Release 页
+  const releasePage = !p.visit && releasePages[p.release]
+  const more = releasePage
+    ? `<p class="dl-more"><a class="link" href="${esc(releasePage)}" target="_blank" rel="noopener">在 GitHub 查看全部版本和文件（含免安装版）→</a></p>`
+    : ''
   const shots = p.shots.length
     ? `<div class="shots">${p.shots.map((s) => `<button type="button" class="shot"><img src="screens/${esc(s)}" alt="${esc(p.name)} 截图" loading="lazy"></button>`).join('')}</div>`
     : '<p class="work-soon">截图即将补上。</p>'
@@ -67,6 +72,7 @@ if (!p) {
     <section id="download">
       <h2>${p.visit ? '访问' : '下载体验'}</h2>
       ${downloads}
+      ${more}
     </section>
     <p class="product-back"><a class="btn btn-outline" href="index.html#works">← 看其他作品</a> <a class="btn btn-accent" href="index.html#price">参与众筹</a></p>`)
 

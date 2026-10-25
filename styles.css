@@ -427,6 +427,7 @@ em.exp { flex-shrink: 0; font-style: normal; padding: 0 10px; border-radius: 10p
 .dl-name { font-weight: 600; flex-grow: 1; }
 .dl-name small { margin-left: 8px; padding: 0 8px; border-radius: 9px; background: var(--accent-soft); color: var(--accent-dark); font-size: 12px; }
 .dl-note { color: var(--text-2); font-size: 14px; }
+.dl-more { margin: 12px 0 0; font-size: 14px; }
 .product-back { display: flex; gap: 12px; flex-wrap: wrap; }
 .lightbox { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.75); cursor: zoom-out; }
 .lightbox img { max-width: 100%; max-height: 100%; border-radius: 8px; }

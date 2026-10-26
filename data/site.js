@@ -53,6 +53,12 @@ export const releasePages = {
   demo: short('RI'),      // superkey-demo 最新版本的 Release 页（学习用的版本、KeyCast）；RI 是大写的 i
 }
 
+// 学习用的版本在网盘上是同一个分享（所有学习版本放在一起），各作品共用这几个按钮、同一个短链接
+const learningPans = [
+  { label: '123 网盘', url: short('RK'), note: '免费账号登录就能下载，速度快' },   // 123 网盘“超级快捷键课程-学习版本”的分享
+  { label: '百度网盘', url: short('Rt'), note: '不开会员会限速' },   // 百度网盘“超级快捷键课程-学习版本”的分享（Rt 是小写 t）
+]
+
 // ---- 作品：每个目录做出来的软件或网站 ----
 //   tier       在哪个档位（public = 公开，不用买）
 //   dirs       对应源码里的哪些目录
@@ -97,7 +103,7 @@ export const products = [
     video: '',
     release: 'demo',
     downloads: [
-      { label: '123 网盘', url: short('RK'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      ...learningPans,
       { label: 'GitHub 下载', url: short('c6'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Win32-1.0.0-x64-Setup.exe
     ],
   },
@@ -114,7 +120,7 @@ export const products = [
     video: '',
     release: 'demo',
     downloads: [
-      { label: '123 网盘', url: short('Rq'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      ...learningPans,
       { label: 'GitHub 下载', url: short('cX'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-WPF-1.0.0-x64-Setup.exe
     ],
   },
@@ -131,7 +137,7 @@ export const products = [
     video: '',
     release: 'demo',
     downloads: [
-      { label: '123 网盘', url: short('RT'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      ...learningPans,
       { label: 'GitHub 下载', url: short('cu'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Electron-1.0.0-x64-Setup.exe
     ],
   },
@@ -148,7 +154,7 @@ export const products = [
     video: '',
     release: 'demo',
     downloads: [
-      { label: '123 网盘', url: short('RD'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      ...learningPans,
       { label: 'GitHub 下载', url: short('ch'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Tauri-1.0.0-x64-Setup.exe
     ],
   },
@@ -164,7 +170,10 @@ export const products = [
     shots: ['keycast-settings.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('RF'), note: '' }],   // superkey-demo 1.0.0 的 KeyCast-1.0.0-x64.zip
+    downloads: [
+      ...learningPans,
+      { label: 'GitHub 下载', url: short('RF'), note: '' },   // superkey-demo 1.0.0 的 KeyCast-1.0.0-x64.zip
+    ],
   },
   {
     id: 'classic',
@@ -197,7 +206,10 @@ export const products = [
     shots: ['qt-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('Ri'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Qt-1.0.0-x64-Setup.exe
+    downloads: [
+      ...learningPans,
+      { label: 'GitHub 下载', url: short('Ri'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Qt-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'd2d',
@@ -217,7 +229,7 @@ export const products = [
     video: '',
     release: 'demo',
     downloads: [
-      { label: '123 网盘', url: short('R7'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      ...learningPans,
       { label: 'GitHub 下载', url: short('Rz'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Direct2D-1.0.0-x64-Setup.exe
     ],
   },

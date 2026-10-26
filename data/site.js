@@ -58,7 +58,7 @@ export const releasePages = {
 //   dirs       对应源码里的哪些目录
 //   shots      截图：放在 public/screens/ 下，写文件名；第一张是作品墙卡片上的缩略图
 //   downloads  下载链接：详情页的“下载”一节列出全部（作品墙上的“下载体验”跳到那里），第一个标“推荐”；url 空着显示“即将提供”。
-//              网盘和官网下载页用同一个分享（超级快捷键和经典版在同一个分享里），按钮名写网盘名、note 写要不要登录 / 会员
+//              网盘和官网下载页用同一个分享（123 网盘：超级快捷键、经典版各一个分享；百度网盘：两个在同一个分享里），按钮名写网盘名、note 写要不要登录 / 会员
 //   release    下载在哪个公开仓库（releasePages 里的 release / demo）：详情页显示“在 GitHub 查看全部版本和文件”
 //   visit      网站类作品：访问地址（代替下载）
 //   video      效果演示视频的地址（如 B 站）：作品墙和详情页出现“▶ 效果演示”，点了在新窗口打开；空着不显示
@@ -78,7 +78,7 @@ export const products = [
     video: short('RB'),   // B 站 BV1g6kkB5E1G
     release: 'release',
     downloads: [
-      { label: '123 网盘', url: short('R5'), note: '免费账号登录就能下载，速度快' },
+      { label: '123 网盘', url: short('Ro'), note: '免费账号登录就能下载，速度快' },
       { label: '百度网盘', url: short('Rr'), note: '不开会员会限速' },
       { label: 'GitHub 下载', url: short('c3'), note: '' },   // superkey-release 1.0.0 的 SuperKey-1.0.0-x64-Setup.exe
     ],
@@ -96,7 +96,10 @@ export const products = [
     shots: ['core-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('c6'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Win32-1.0.0-x64-Setup.exe
+    downloads: [
+      { label: '123 网盘', url: short('RK'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      { label: 'GitHub 下载', url: short('c6'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Win32-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'wpf',
@@ -110,7 +113,10 @@ export const products = [
     shots: ['wpf-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('cX'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-WPF-1.0.0-x64-Setup.exe
+    downloads: [
+      { label: '123 网盘', url: short('Rq'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      { label: 'GitHub 下载', url: short('cX'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-WPF-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'electron',
@@ -124,7 +130,10 @@ export const products = [
     shots: ['electron-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('cu'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Electron-1.0.0-x64-Setup.exe
+    downloads: [
+      { label: '123 网盘', url: short('RT'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      { label: 'GitHub 下载', url: short('cu'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Electron-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'tauri',
@@ -138,7 +147,10 @@ export const products = [
     shots: ['tauri-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('ch'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Tauri-1.0.0-x64-Setup.exe
+    downloads: [
+      { label: '123 网盘', url: short('RD'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      { label: 'GitHub 下载', url: short('ch'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Tauri-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'keycast',
@@ -167,7 +179,7 @@ export const products = [
     video: '',
     release: 'release',
     downloads: [
-      { label: '123 网盘', url: short('Rs'), note: '在分享里的“经典版”文件夹' },   // Rs 是小写 s
+      { label: '123 网盘', url: short('RE'), note: '在分享里的“经典版”文件夹' },
       { label: '百度网盘', url: short('RG'), note: '在分享里的“经典版”文件夹' },
       { label: 'GitHub 下载', url: short('c8'), note: '' },   // superkey-release 1.0.0 的 SuperKey-Classic-1.0.0-x64-Setup.exe
     ],
@@ -204,7 +216,10 @@ export const products = [
     shots: ['d2d-overview.webp'],
     video: '',
     release: 'demo',
-    downloads: [{ label: 'GitHub 下载', url: short('Rz'), note: '' }],   // superkey-demo 1.0.0 的 SuperKey-Direct2D-1.0.0-x64-Setup.exe
+    downloads: [
+      { label: '123 网盘', url: short('R7'), note: '免费账号登录就能下载，速度快' },   // 学习版本的分享
+      { label: 'GitHub 下载', url: short('Rz'), note: '' },   // superkey-demo 1.0.0 的 SuperKey-Direct2D-1.0.0-x64-Setup.exe
+    ],
   },
   {
     id: 'aardio',

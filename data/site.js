@@ -33,7 +33,7 @@ export const course = {
   // 以后换图时换一个新文件名（如 wechat-card-2.jpg），否则用户浏览器可能还显示缓存里的旧图
   wechat: { id: 'ixueaedu', qr: 'wechat-card-1.jpg' },
   // 课程介绍视频的地址（首屏那个大封面点了跳过去，如 B 站）
-  videoUrl: '',
+  videoUrl: short('R6'),   // B 站课程介绍视频 BV1xMno6dEBg
   // B 站、抖音：name 是显示的账号名，url 是主页地址；都空着时页面底部不显示这一行
   bilibili: { name: '', url: '' },
   douyin: { name: '', url: '' },
